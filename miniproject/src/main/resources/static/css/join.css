@@ -1,0 +1,56 @@
+#newMemberForm{
+	
+	border-bottom : 1px solid #c0c0c0;
+	
+}
+
+table td {
+		width:150px;
+		height:50px;
+		padding-right: 10px;
+		color: #666;
+		font-weight : normal;
+		font-size: 20px;
+		text-align: left;
+		vertical-align:middle;
+	}
+
+
+
+.input{
+	width:200px;
+  height: 20px;
+    padding: 4px 10px;
+    border: 1px solid #dcdcdc;
+    background: #fff;
+    color: #666;
+    font-size: 12px;
+}
+
+.join-buttons{
+  text-align: center;
+}
+  
+ #hp1{
+ width:45px;
+ height:20px;
+ }
+ 
+ #hp2{
+ width:55px;
+ height:20px;
+ }
+ #hp3{
+ width:55px;
+ height:20px;
+ }
+ #birth{
+  width:55px;
+ height:20px;
+ }
+ 
+select{
+	 width:55px;
+ height:27px;
+	
+}

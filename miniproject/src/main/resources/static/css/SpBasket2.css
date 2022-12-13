@@ -1,0 +1,118 @@
+@charset "UTF-8";
+
+/* 장바구니  */
+.SpBasket {
+	width: 1280px;
+	vertical-align: middle;
+	text-align: center;
+	position: relative;
+	padding-left: 30px;
+	padding-right: 30px;
+	margin: 0 auto;
+}
+
+.SpBasket h2 {
+	padding: 50px;
+	text-align: center;
+}
+
+
+.list #thead tr th {
+	margin: 60px;
+	height: 1px;
+	padding: 50px;
+	width: 16%;
+
+	border-top: solid #ccc 1px;
+	border-bottom: solid #ccc 1px;
+}
+
+
+.list #tbody tr td {
+	width: 16%;
+
+	height: 1px;
+	border-bottom: solid #ccc 1px;
+	text-align: center;
+	padding-top: 50px;
+	padding-bottom: 50px;
+	
+}
+
+
+
+
+
+.prd1 {
+	padding-top: 20px;
+	text-align: left;
+	padding-bottom: 200px;
+}
+.product {
+	padding-top: 50px;
+	padding-bottom: 50px;
+}
+.product .imgbox img {
+	width: 200px;
+	height: 200px;
+} 
+
+.prd1 .btn #btnimg1 {
+	cursor: pointer;
+}
+
+.prd1 .btn #btnimg2 {
+	cursor: pointer;
+}
+
+.prd1 .btn #btnimg3 {
+	cursor: pointer;
+}
+
+.prd1 .btn #btnimg4 {
+	cursor: pointer;
+}
+
+.msg #msg1 {
+	text-shadow: black;
+}
+
+.msg {
+	padding-top: 50px;
+	text-align: left;
+}
+
+.msg #msg1 #Exclamation {
+	margin: 0 auto;
+	width: 10px;
+}
+
+.msg #msg1 #Exclamation img {
+	float: left;
+	margin: 10px;
+}
+
+.msg .button {
+	text-decoration: none;
+	background-color: #fff;
+	color: #000;
+	display: block;
+	width: 400px; 
+	height: 100px; line-height : 100px;
+	float: right;
+	margin-top: 50px; 
+	font-size: 30px;
+	text-align: center;
+	border-radius: 5px;
+	transition: all 0.2s;
+	font-weight: 600;
+}
+
+.msg .btnBlueGreen.btnBorder {
+	box-shadow: 0px 0px 0px 0px #000000;
+}
+
+.msg .btnBlueGreen.btnBorder:hover {
+	box-shadow: 0px 0px 0px 5px #000000;
+}
+

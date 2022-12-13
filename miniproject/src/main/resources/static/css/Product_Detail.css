@@ -1,0 +1,153 @@
+@charset "UTF-8";
+
+/* common.css */
+
+/* ------------------------------ */
+#content2{
+	background:white;
+}
+#prdtb{
+	float:left;
+	height:350px;
+	width:100%;
+	background:white;
+}
+
+ #prdimg{
+	width:100%;
+	height:100%;
+} 
+table {
+	width:70%;
+	margin:0 auto;
+	height:100%;
+	
+}
+#fruitTitle{
+	font-size:30px;
+}
+table td:nth-child(2n){
+	padding-left:5px;
+	width:50%;
+}
+#ordnum{
+	width:15%;
+}
+#prdImgtd{
+	width:40%;
+}
+
+#fruitname{
+	float:Left;
+}
+
+#total{
+	text-align:right;
+	font-size:20px;
+	margin:0 0 0 10%;
+}
+#Btns_td{
+	text-align:right;
+}
+
+
+#cartBtn, #orderBtn{
+	background-color: white;
+    /* color: white; */
+	margin:0 5px;
+	width:40%;
+	height:3em;
+	font-weight:bold;
+	border-radius :10px;
+	font-size:1em;
+	cursor:pointer;
+}
+
+/* ---------------- tab-----------------------  */
+
+
+#tabMenu ul li {
+	font-weight: bold;
+	background:#d0e7a0;
+	text-align:center;
+	float:left; /* 한 줄로 배치  */
+	list-style:none;
+	width:31.76%;
+	padding:10px;
+	display:block;
+	cursor:pointer;
+	border-radius :3px;
+}
+
+
+/*--------------------content_3-----------------  */
+ #content3{
+
+ clear:both;
+ background:#f9f9f9;
+ }
+  
+#tabContent {
+	padding-bottom:10px;
+	text-align:center;
+} 
+
+#a2, #a3{
+	display:none;
+}
+
+#prdreview1{
+	margin-top:10px;
+	width:80%;
+  height:32px;
+}
+#prdreview2{
+ width:80%;
+  height:80px;
+ }
+ 
+ #reviewtable2{
+ text-align:center;
+ width:90%;
+ border-collapse:collapse;
+ border:2px solid;
+height:12em;
+ }
+ #reviewtable2 tr td:fist-child{
+	padding-left:5px;
+	width:50%;
+}
+ #reviewtable2 tr{
+ border:1px solid;
+  border-bottom:2px solid;
+ }
+ 
+#reviewbtn1{
+  background-color: #1e6b7b;
+    width: 5.5em;
+    height: 2.5em;;
+    font-size: 15px;
+    font-weight: bold;
+    color: aliceblue;
+    border-radius :5px;
+    cursor:pointer;
+ }
+ #reviewbtn2{
+ background-color: #1e6b7b;
+    width: 5.5em;
+    height: 4em;;
+    font-size: 15px;
+    font-weight: bold;
+    color: aliceblue;
+    border-radius :5px;
+    cursor:pointer;
+ }
+
+
+
+
+
+
+
+
+
