@@ -20,6 +20,7 @@
         	<c:import url="/WEB-INF/views/layout/top.jsp" />
     <article id="content1">
 		<div id="prdtb">
+		<form id="cartDB" method="post" action="<c:url value=''/>">
 			<table>
 				<thead>
 					<tr><td rowspan="7" id="prdImgtd"><img src="<c:url value='/images/${fru.fruImg}'/>" id="prdimg"></td>
@@ -29,7 +30,7 @@
 						<tr>
 							<td>수량</td>
 							<td>
-								<select id="ordnum">
+								<select id="ordnum" name="cartQty">
 								<option value="1"selected>1</option>
 									<option value="2">2</option>
 									<option value="3">3</option>
@@ -44,10 +45,11 @@
 						</tr>
 						<tr><td>배송비</td><td>3,000</td></tr>
 						<tr><td colspan="2" id="total"><fmt:formatNumber value="${fru.fruPrice}" pattern="#,###" /> 원</td></tr>
-					<tr><td colspan="2" id='Btns_td'><button id="cartBtn" type='button'>장바구니</button>
+					<tr><td colspan="2" id='Btns_td'><input type="submit" value="장바구니">
 					<button id="orderBtn" type='button'>주문하기</button></td></tr>
 				</thead>
 			</table>
+			</form>
 		</div>
 	</article>
 	<article id="content2">
@@ -62,7 +64,7 @@
 	<article id="content3">
 	<hr>
 		<div id="tabContent">
-			<div id='a1'><img src="<c:url value='/images/${fru.fruImg}'/>"></div>
+			<div id='a1'><img src="<c:url value='/images/${fru.fruNo}-1.jpg'/>"></div>
 				<div id='a2'>
 					<table id='reviewtable1'>
 						<tr>
