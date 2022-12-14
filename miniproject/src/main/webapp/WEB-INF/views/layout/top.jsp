@@ -1,11 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+        	<script src="<c:url value='/js/header.js' />"></script>
         <header>
             <div class="header-menu">
                 <div>
                     <ul>
-                        <a class="header-item" href="#"><li>전체상품</li></a>
+                        <a class="header-item" href="<c:url value='/fruit/fruitAllList'/>"><li>전체상품</li></a>
                         <a class="header-item" id="dropdown-btn"><li>제철과일 <i class="fa fa-chevron-down"></i></li></a>
                         <div id="subMenuBox">
                             <div class="subMenuItem hidden" id="subMenuItem1">
@@ -22,23 +23,22 @@
                 </div>
                 
                 <div>
-			<c:if test="${empty sessionScope.sid }">
-				<ul>
-					<a class="header-item focus"><li><i class="fa fa-commenting"></i>챗봇</li></a>
-					<a class="header-item" href="<c:url value='/product/cartList'/>"><li>장바구니</li></a>
-					<a class="header-item" href="<c:url value='/member/loginForm'/>"><li>로그인</li></a>
-					<a class="header-item" href="<c:url value='/member/joinForm'/>"><li>회원가입</li></a>
-				</ul>
-			</c:if>
-			
-			<c:if test="${not empty sessionScope.sid }">
-							${sessionScope.sid}님 환영합니다! 
+					<c:if test="${empty sessionScope.sid }">
+						<ul>
 							<a class="header-item focus"><li><i class="fa fa-commenting"></i>챗봇</li></a>
 							<a class="header-item" href="<c:url value='/product/cartList'/>"><li>장바구니</li></a>
-							<a class="header-item" href="<c:url value='/member/logout'/>"><li>로그아웃</li></a> 
-							<a class="header-item" href="<c:url value='/member/myPage'/>"><li>My Page</li></a>
-						</c:if>	            	
-		</div>
+							<a class="header-item" href="<c:url value='/member/loginForm'/>"><li>로그인</li></a>
+							<a class="header-item" href="<c:url value='/member/joinForm'/>"><li>회원가입</li></a>
+						</ul>
+					</c:if>
+					<c:if test="${not empty sessionScope.sid }">
+						${sessionScope.sid}님 환영합니다! 
+						<a class="header-item focus"><li><i class="fa fa-commenting"></i>챗봇</li></a>
+						<a class="header-item" href="<c:url value='/product/cartList'/>"><li>장바구니</li></a>
+						<a class="header-item" href="<c:url value='/member/logout'/>"><li>로그아웃</li></a> 
+						<a class="header-item" href="<c:url value='/member/myPage'/>"><li>My Page</li></a>
+					</c:if>	            	
+				</div>
             </div>
         </header>
         <nav>
