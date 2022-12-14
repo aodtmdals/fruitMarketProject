@@ -11,8 +11,6 @@
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/SpBasket.css' />">
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/menu.css' />">
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/index.css' />">
-		<script src="<c:url value='/js/header.js' />"></script>
-		<c:import url="/WEB-INF/views/layout/top.jsp" />
 			<script src="<c:url value='/js/cartListView.js' />"></script>
 			<script type="text/javascript">
 			var qty = 1;
@@ -42,7 +40,7 @@
 	</head>
 	<body>
 		<div id="wrap">
-			
+			<c:import url="/WEB-INF/views/layout/top.jsp" />
 			
 			   <div class ="SpBasket">
 				<h2>장바구니</h2>
@@ -90,7 +88,6 @@
 			         </tr>
 			   </c:forEach>
 				</tbody>
-				
 			</table>
 				
 				<div class="prd1">
