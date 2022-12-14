@@ -6,7 +6,7 @@ import com.miniproject.model.CartVO;
 
 
 
-	public interface ICartService {
+public interface ICartService {
 	public void insertCart(CartVO vo); // 장바구니에 추가
 	public int checkFruInCart(String fruNo, String memId); // 동일 상품 존재 여부 확인 (반환값: 동일 상품 개수)
 	public void updateQtyInCart(CartVO vo); //동일 상품이  존재하면 수량 변경
