@@ -9,11 +9,6 @@ public class testController {
 	public String index() {
 		return "index";
 	}
-	
-	@RequestMapping("/chat")
-	public String chat() {
-		return "fruit/chat";
-	}
 
 	@RequestMapping("/fruit")
 	public String cartListView() {
