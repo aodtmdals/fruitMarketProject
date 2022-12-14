@@ -23,13 +23,22 @@
                     <a href="#" class="header-item"><img src="/image/로고.PNG"></a>
                 </div>
                 <div>
+                  <c:if test="${empty sessionScope.sid }">
                     <ul>
-                        <a class="header-item focus"><li><i class="fa fa-commenting"></i>챗봇</li></a>
-                        <a class="header-item" href="<c:url value='/cart'/>"><li>장바구니</li></a>
-                        <a class="header-item" href="<c:url value='/login'/>"><li>로그인</li></a>
-                        <a class="header-item" href="<c:url value='/join'/>"><li>회원가입</li></a>
-                       <a href="<c:url value='/fruit/fruitSearchForm'/>"> <button type="submit" class=" header-item "><i class="fa fa-search"></i></button></a>
+                          <a class="header-item focus" href="<c:url value='/chat'/>"><li><i class="fa fa-commenting"></i>챗봇</li></a>
+                          <a class="header-item" href="<c:url value='/'/>"><li>장바구니</li></a>
+                      <a class="header-item" href="<c:url value='/member/loginForm'/>"><li>로그인</li></a>
+                      <a class="header-item" href="<c:url value='/member/joinForm'/>"><li>회원가입</li></a>
                     </ul>
+                  </c:if>
+
+                  <c:if test="${not empty sessionScope.sid }">
+                          ${sessionScope.sid}님 환영합니다! 
+                          <a class="header-item focus" href="<c:url value='/chat'/>"><li><i class="fa fa-commenting"></i>챗봇</li></a>
+                          <a class="header-item" href="<c:url value='/fruit/cartList'/>"><li>장바구니</li></a>
+                          <a class="header-item" href="<c:url value='/member/logout'/>"><li>로그아웃</li></a> 
+                          <a class="header-item" href="<c:url value='/member/myPage'/>"><li>My Page</li></a>
+                        </c:if>	            	
                 </div>
             </div>
         </header>

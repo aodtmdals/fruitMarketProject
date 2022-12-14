@@ -85,7 +85,7 @@
 				<tbody id="tbody">
 				<c:forEach var="fru" items="${cartList}">
 					 <tr>
-			               <td><img  src="<c:url value='/images/${fru.fruImg}'/>" width="100" height="70">${fru.fruInfo }</td>
+			               <td><img  src="<c:url value='/image/${fru.fruImg}'/>" width="100" height="70">${fru.fruInfo }</td>
 			               <td>${fru.fruNo}</td>
 			               <td align="right"><span class="prdPrice"><fmt:formatNumber  value="${fru.fruPrice}" pattern="#,###" /></span> 원
 			                <input type="hidden" id="fruPrice"  value="${fru.fruPrice}">
