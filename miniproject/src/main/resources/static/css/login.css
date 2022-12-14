@@ -54,6 +54,7 @@ h2  {
 }
 
 .loginpage{
+margin-top:100px;
 width: 500px;
 top: 150%;
 left: 28%;
@@ -73,7 +74,6 @@ box-shadow: 0 0 30px;
 }
 
 .loginpage >div{
-	float:left;
 	box-sizing:border-box;
 	width:500px;
 }

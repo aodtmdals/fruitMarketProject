@@ -7,14 +7,14 @@
 		<meta charset="UTF-8">
     	<title>로그인 페이지</title>
 		<c:import url="/WEB-INF/views/layout/head.jsp" />
-    	<link rel="stylesheet" type="text/css" href="/css/index.css">
-    	<link rel="stylesheet" type="text/css"href="/css/login.css">
-     	<script src="/js/login.js"></script>
+    	<link rel="stylesheet" type="text/css" href="<c:url value='/css/index.css' />">
+    	<link rel="stylesheet" type="text/css" href="<c:url value='/css/login.css' />">
+     	<script src="<c:url value='/js/login.js' />"></script>
 	</head>
 	<body>
 		<div id="wrap">
 			<c:import url="/WEB-INF/views/layout/top.jsp" />
-			<form id="newMemberForm" name="newMemberForm" method="post" action="../index.html">
+			<form id="newMemberForm" name="newMemberForm">
 				<div class="loginpage">
 				    <h2> 새콤달콤상점</h2> 
 				    <div class ="login">

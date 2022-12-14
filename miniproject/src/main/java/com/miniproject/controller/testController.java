@@ -1,4 +1,4 @@
-package com.miniproject;
+package com.miniproject.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,18 +10,14 @@ public class testController {
 		return "index";
 	}
 
-	@RequestMapping("/cart")
+	@RequestMapping("/fruit")
 	public String cartListView() {
-		return "product/cartListView";
+		return "fruit/cartListView";
 	}
-
-	@RequestMapping("/list")
-	public String productListlView() {
-		return "product/productListView";
-	}
+	
 	@RequestMapping("/detail")
 	public String productDetailView() {
-		return "product/productDetailView";
+		return "fruit/fruitDetailView";
 	}
 
 	@RequestMapping("/login")
@@ -31,5 +27,6 @@ public class testController {
 	@RequestMapping("/join")
 	public String joinForm() {
 		return "member/joinForm";
-	}
+	}	
+
 }

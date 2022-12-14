@@ -1,14 +1,18 @@
 
-const sendMsg = document.getElementsByClassName("message-area");
 const chatTitle = document.querySelectorAll("#chat-title");
-const confirmCheck = document.getElementById("not-confirm-message");
-const chatList = document.querySelectorAll(".chat-list"); 
-const moreArea = document.getElementById("more-area");  
-const moreBtn = document.getElementById("more-btn"); 
 const dropdown = document.getElementById("more-dropdown");
 const dropdownItem = document.querySelectorAll(".dropdown-item");
 
 let clickCount =  0;
+let headerClickCount = 0; 
+
+function buttonChange(){
+    if(inputMsg.value){
+        questionBtn.disabled = false;
+    } else{
+        questionBtn.disabled = true;
+    }
+}
 
 
 $(document).ready(function(){
@@ -23,38 +27,64 @@ $(document).ready(function(){
         }
     });
 
+    //안 읽은 메세지 띄우기
+    $('#not-confirm-message').on('change', function(){
+        if($('#not-confirm-message').prop('checked')){
+            //db에서 받아와 처리하기
+        }
+    });
+    
+    //메세지 띄우기 
+    $('#questionFrm').on('submit', function(){
+        event.preventDefault();
+
+        let formData = $(this).serialize();
+        
+        $.ajax({
+            type:"post",
+            url:"chatting",
+            data: formData,
+            success:function(result){
+                if(result != ""){
+                    for(let i=1; i < result.length; i++){
+                        
+                        //날자 세팅
+                        let today = new Date(result[i].chatDate);
+                        let yesterday = new Date(result[i-1].chatDate);
+                        let amPm = '오후';
+                        let hours = today.getHours();
+                        let minutes = today.getMinutes();
+
+                        if(hours >= 12) { // 시간이 12보다 클 떄, PM으로 변경 후, 12시간을 빼준다.
+                            amPm.innerText = '오전';
+                            hours = hours - 12;
+                        }
+
+                        hours = hours.toString().padStart(2, '0');
+
+                        //하루가 지났으면 표시해주기
+                        if(today.getDate() > yesterday.getDate()){
+                            $('#message-area').append(`<div class="message-time">' + 
+                                ${today.getFullYear()}년 ${today.getMonth() + 1}월 ${today.getDate()}일
+                            </div>`)
+                        }
+                            $('#message-area').append(`
+                        <div class="recive-msg-box">
+                            <span class="profile-img"><img src="/image/${result[i].rcvImg}"/></span>
+                            <div class="recive-msg">
+                                <span>
+                                    ${result.sendMsg}
+                                </span>
+                            </div>
+                            <div class="msg-time">${amPm} ${hours}시 ${minutes}분</div>
+                        </div>`)
+                    }
+                }
+            }
+        });
+    });
+
 });
-
-function setChatDate(){
-
-    const time = new Date();
-    let amPm = '오후';
-    let hours = time.getHours();
-    const minutes = time.getMinutes();
-   
-    if(hours >= 12) { // 시간이 12보다 클 떄, PM으로 변경 후, 12시간을 빼준다.
-        amPm.innerText = '오전';
-        hours = hours - 12;
-    }
-
-    hours = hours.toString().padStart(2, '0');
-
-    newSendBox.className = "recive-msg-box";
-    newSpan.className = "profile-img";
-    newSendMsg.className = "recive-msg";
-    newImg.src = "#";
-    sendmessage.innerHTML = inputMsg.value;
-    msgTime.innerHTML = `${amPm} ${hours}시 ${minutes}분`;
-
-    console.log(msgTime.innerHTML);
-
-    sendmessage.appendChild(newSendBox);
-    newSendBox.appendChild(newSpan);
-    newSpan.appendChild(newImg);
-    newSendBox.appendChild(newSendMsg);
-    newSendMsg.appendChild(sendmessage);
-    newSendBox.appendChild(msgTime);
-}
 
 function notRead(){
     for(let items = 0; items < chatTitle.length; items++){
