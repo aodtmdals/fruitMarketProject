@@ -12,7 +12,8 @@ public class WebConfig implements WebMvcConfigurer {
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
 		registry.addResourceHandler("/images/**")
 		//나중에 바꾸기
-		.addResourceLocations("file:///C:/springWorkspace/productImages/");													
+		.addResourceLocations("file:///C:/springWorkspace/fruitImages/");												
 	
 	}
 }
+

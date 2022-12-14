@@ -13,15 +13,16 @@ function hiddenHeaderDropdown(){
     headerMoreBtn.classList.remove("select-dropdown");
 }
 
-
 headerMoreBtn.addEventListener('click', function(){
     headerClickCount++;
     if(headerClickCount%2 == 0){
         hiddenHeaderDropdown();
     }else{
         showHeaderDropdown();
-    }
+        }
 });
+
+
 
 for(let item = 0; item < headerDropdownItem.length; item++){
     headerDropdownItem[item].addEventListener('click', function(event){
