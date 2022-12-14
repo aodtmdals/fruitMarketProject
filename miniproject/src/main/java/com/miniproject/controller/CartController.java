@@ -31,8 +31,8 @@ public class CartController {
 		// memId에 저장
 		// 로그인 성공 시 설정한 세션 sid 값 가져와서 사용
 		String memId = (String)session.getAttribute("sid");
-		//vo.setMemId(memId); // vo의 memId 값 설정
-		vo.setMemId("aaaa");
+		vo.setMemId(memId); // vo의 memId 값 설정
+		
 		
 		// (1) 동일 상품이 존재하는 지 확인 : 동일 상품 개수 반환
 		int count = service.checkFruInCart(vo.getFruNo(), memId);	
@@ -53,8 +53,8 @@ public class CartController {
 		// cart 테이블에서 현재 로그인 한 회원에 해당되는 내용만 출력하기 위해
 		// memId 필요 : session의 sid 사용
 		String memId = (String) session.getAttribute("sid");
-		//ArrayList<CartVO> cartList = service.cartList(memId);
-		ArrayList<CartVO> cartList = service.cartList("aaaa");
+		ArrayList<CartVO> cartList = service.cartList(memId);
+		
 		
 		model.addAttribute("cartList", cartList);
 		return "fruit/cartListView";
@@ -82,18 +82,14 @@ public class CartController {
 	@RequestMapping("/fruit/deleteAllCart")
 	public String delete(HttpSession session) {
 	String memId= (String)session.getAttribute("sid");
-	//service.deleteAllCart(memId);
-	service.deleteAllCart("aaaa");
+	service.deleteAllCart(memId);
+	
 
 	return "redirect:/fruit/cartList";
 	}
 	
 	
 }
-
-
-
-
 
 
 
