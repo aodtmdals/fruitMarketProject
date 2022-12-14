@@ -29,9 +29,9 @@ a:hover{
 }
 
 .logo img{
-	margin-left:180px;
     width: 180px;
 }
+
 .header-item li,
 .logo{
     display: inline;
@@ -40,7 +40,9 @@ a:hover{
     font-size: small;
 }
 
-
+.header-item i{
+    margin-right: 10px
+}
 .header-item li:hover{
     color: olivedrab;
     font-weight: bold;
@@ -59,7 +61,6 @@ a:hover{
 }
 
 .input-search-word{
-    float: center;
     height: 30px;
     width: 400px;
     border:3px solid gray;
@@ -69,15 +70,14 @@ a:hover{
 .input-search-word:focus{
     outline: 0px;
 }
-button.header-item{
-   
+
+button.header-item{   
     height: 40px;
-    width: 35px;
+    width: 40px;
     background-color: gray;
     color: white;
     border:0px;
-    padding:10p 0px;
-    align-items: center;
+    padding:13px;
 }
 
 
@@ -110,4 +110,3 @@ button.header-item{
 .hidden{
     display: none;
 }
-

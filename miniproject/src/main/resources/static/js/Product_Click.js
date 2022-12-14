@@ -24,9 +24,9 @@
 	 });
 	
 	
-	$('#cartBtn').on('click', function(){
+	$('#Btns_td').on('click', function(){
 		alert('장바구니에 넣었습니다');
-  		window.location.href ="/fruit/insertCart";
+  		//window.location.href ="/fruit/cartListView";
 
 		
 	});	
@@ -44,24 +44,16 @@
 		alert('문의하기작성완료');
 	});	
 	
-	
-	 var price = 49000;
-	 var amount, optNum = 0;
-	 
-	 // 주문액을 계산하여 출력하는 함수
-	 function showAmount() {
-		 // amount 계산
-		 amount = price * optNum;
-		 $('#total').text(amount.toLocaleString() + " 원");
-		 // 주문액 출력
-		 // 천 단위 구분 : toLocaleString() 
-	 }
-
-	
-	$('#ordnum').on('change', function(){
-					optNum = parseInt($(this).val());
-					showAmount();
-				});
+		
+	$('#cartQty').on('change', function(){
+				
+				optNum = parseInt($(this).val());
+				
+				var total = optNum * $("#fruPrice").val();
+				
+				$("#amount").html(total.toLocaleString());
+				
+	});
 				
 });
 	

@@ -14,7 +14,6 @@ import com.miniproject.model.FruitVO;
 import com.miniproject.service.FruitService;
 
 
-
 @Controller
 public class FruitController {
 	 @Autowired
@@ -35,6 +34,7 @@ public class FruitController {
 	    	 //System.out.println(fruList.get(0).getFruInfo());
 	    	 return"fruit/fruitCtgListView";
 	     }
+	     
 	  // 상품 상세 조회
 	 	@RequestMapping("/fruit/detailViewFruit/{fruNo}")
 	 	public String detailViewFruit(@PathVariable String fruNo, Model model) {
@@ -43,7 +43,7 @@ public class FruitController {
 	 		model.addAttribute("fru", fru);		
 	 		return "fruit/fruitDetailView";
 	 	}
-	 	  @RequestMapping("/fruit/fruitSearchForm")
+	 	@RequestMapping("/fruit/fruitSearchForm")
 		   public String fruitSearchForm() {
 			    return "/fruit/fruitSearchForm";
 		   }
@@ -55,6 +55,7 @@ public class FruitController {
 			   return"fruit/fruitSearchResultView";
 			   
 		   }
-	}
+
+}
 
 

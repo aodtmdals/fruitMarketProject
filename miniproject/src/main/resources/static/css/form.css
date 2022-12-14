@@ -1,6 +1,7 @@
 #fruSearchFrm{
-	margin:20px 20px;
+	margin:30px;
 }
+
 #type{
 	margin-left:0px;
 	height: 40px;
@@ -9,5 +10,9 @@
     background: #fff;
     color: #666;
     display:none;
-    
+}
+
+#result-title{
+	 font-size: 25px;
+	 color: #f47622;
 }

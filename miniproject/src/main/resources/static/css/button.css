@@ -1,38 +1,37 @@
 @charset "UTF-8";
 
 #button{
-	   	width:1200px;
+	width:1200px;
 }
 
 #buttonBox{
-	margin-top:500px;
+	display:flex;
+	margin:30px 0px;
 	border:solid 1px black;
 	text-align:left;
 	height:300px;
 	line-height:200px;
 	border-radius:20px;
+	padding:10px
 }
+
 #btn{
-	display:inline-block;
-	text-align:center;
 	font-size:30px;
 	border:solid 1px grey;
-	width:300px;
-	height:100px;
 	border-radius:5px;
 	background-color:#FFFFF8;
-	margin-left:50px;
+	width:260px;
+	height:100px;
+	text-align:center;
+	margin-top:100px;
 }
 
 #random{
-		display:inline-block;
-		width:100px;
-	    height:50px;
-	    margin-left:100px;
+	margin:0;	
 }
 
 #random img{
 	width:500px;
-	    height:300px;
-
-	}
+	height:300px;
+	border-radius:20px;	
+}

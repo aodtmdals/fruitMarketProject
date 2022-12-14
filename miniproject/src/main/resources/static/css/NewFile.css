@@ -21,44 +21,47 @@
     color: #666;
    margin-right:100px;
  }
- .products{
- width:1150px;
+ #products{
+  	display: flex;	
+  	align-items: center;
+  	flex-wrap: wrap;
+  	margin-top:30px;
+  	align-items:center;
+    padding: 1% 5%;
  }
+ 
+ .product-buttons{
+ 	display:inline-block;
+ 	margin: 5px 0px;
+ }
+ 
  .product-list{
-  width: 225px;
-  height:370px;
-  text-align: center;
-  display: block;
+  margin:15px 25px;
   color: #545454;
   text-decoration: none;
-  float: left;
-  margin-top:30px;
-  margin-left:30px;
-  margin-right: 30px;
-  margin-bottom:80px;
+  text-align: center;
+  height:430px;
+  width:225px;
 }
-  .product img{
+
+ .product img{
       width:225px;
       height:225px;
       transition: all 0.2s linear;
  }
-.imgbox{
-	width:240px;
-      height:240px;
-      overflow:hidden;
-      line-height:240px;
-}
+
 
 .product img:hover{
          transform: scale(1.4);    
  } 
  .product-button{
-  height: 30px;
+  	height: 30px;
     width: 30px;
     background-color:white;
     border:1px solid #b2b2b2;
     color:gray;
-    margin-bottom:10px;
+    
+    margin:5px 5px;
  }
  
 
@@ -88,40 +91,20 @@
 		  
 }
 .product-subinfo{
-	
-	margin-top:15px;
 	font-size:12px;
 	color:gray;
-	 margin-bottom:15px;
+	margin:0px;
+	padding:10px;
 }
 
 #page-button{
-     
-  height: 30px;
+  	height: 30px;
     width: 30px;
-
     background-color:white;
     border:1px solid #b2b2b2;
     color:gray;
-    margin-top:50px;
     margin-bottom:10px;
  }
- footer{
- clear:both;
- }
-.footer #companyInfo {
-   width: 1280px;
-   vertical-align: middle;
-   text-align: center;
-   position: relative;
-   padding-left: 30px;
-   padding-right: 30px;
-   margin: 0 auto;
-}
-.footer #companyInfo img{
-   text-align: center;
-   width: 1280px;
-   height: 455px;
-}
+ 
 
 

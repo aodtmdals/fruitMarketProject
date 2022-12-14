@@ -1,4 +1,5 @@
 @charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap');
 
 /* common.css */
 
@@ -7,28 +8,29 @@
 	background:white;
 }
 #prdtb{
-	float:left;
-	height:350px;
-	width:100%;
 	background:white;
 }
 
  #prdimg{
 	width:100%;
-	height:100%;
+	height:400px;
 } 
 table {
-	width:70%;
+	width:100%;
 	margin:0 auto;
 	height:100%;
+	font-size: 20px; 
+    color: gray;
 	
 }
 #fruitTitle{
-	font-size:30px;
+font-family: 'Gamja Flower', cursive;
+	font-size:35px;
+	font-weight: bold;
 }
 table td:nth-child(2n){
-	padding-left:5px;
-	width:50%;
+	/* padding-left:5px;
+	width:50%; */
 }
 #ordnum{
 	width:15%;
@@ -68,7 +70,7 @@ table td:nth-child(2n){
 
 #tabMenu ul li {
 	font-weight: bold;
-	background:#d0e7a0;
+	background:beige;
 	text-align:center;
 	float:left; /* 한 줄로 배치  */
 	list-style:none;

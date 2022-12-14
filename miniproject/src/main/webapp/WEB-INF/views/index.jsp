@@ -13,6 +13,7 @@
 	 	<link rel="stylesheet" type="text/css" href="<c:url value='/css/slideShow.css' />">
 	 	<link rel="stylesheet" type="text/css" href="<c:url value='/css/Best.css' />">
 	 	<link rel="stylesheet" type="text/css" href="<c:url value='/css/button.css' />">
+      	<link rel="stylesheet" type="text/css" href="<c:url value='/css/NewFile.css' />">
 	</head>
 	<body>
 		<div id="wrap">
@@ -43,38 +44,50 @@
 	                <article  id="content1"> <!-- 베스트 상품 -->    
 	                	<div id="productBox" >
 	                		<div class="product_text">
-
-	                		<ul>
-	                			<li>Best 상품 정보2</li>
-	                          </ul>
-			<c:forEach var="fru" items="${fruList }">
-          <div class="products">
-          <div class="product-list">
-         <a href="<c:url value='/fruit/detailViewFruit/${fru.fruNo}' />" class="product">
-         <div class="imgbox"> <img src="<c:url value='/images/${fru.fruImg }'/>"></div></a>
-           <button type="submit" class="product-button"><i class="fa fa-search"></i></button>
-           <button type="submit" class="product-button" onClick=btn()><i class="fa fa-heart-o"></i></button>
-           <button type="submit" class="product-button"><i class="fa fa-shopping-basket"></i></button>
-		 <div class="product-brand">${fru.fruCompany }</div> 
-		  <div class=product-info>${fru.fruInfo }</div> 
-		  <span class=product-origin-price>
-		 <c:if test="${not empty fru.fruOriginPrice && 0 != fru.fruOriginPrice}" >${fru.fruOriginPrice }</c:if></span>
-	      <span class="product-price">${fru.fruPrice }</span>		               
-		  <div class="product-subinfo">${fru.fruSubInfo }</div>		
-		</div>
-		</div>
-		</c:forEach> 
-			<article id="button"><!-- 버튼박스 -->
-	                <div id="buttonBox">
-	                      <button id="btn" align="left">오늘의 과일은??</button>
-	                <div id="random">
-	              			   <a href="#"><img src="<c:url value='/image/fruit01.jpg'/>"></a>
-	                </div>
-	                </div>
-	                </article>
-	               <!--  bottom -->         
-	        	<c:import url="/WEB-INF/views/layout/bottom.jsp" />
+		                		<ul>
+		                			<li>Best 상품 정보</li>
+		                        </ul>
+							</div>
+							<div id="products">
+							   <c:forEach var="fru" items="${bestList }">
+								    <div class="product-list">
+									     <div class="imgbox"> 
+										     <a href="<c:url value='/fruit/detailViewFruit/${fru.fruNo}' />" class="product">
+										         <img src="<c:url value='/images/${fru.fruImg }'/>">
+										     </a>
+									     </div>
+									     <div class="product-buttons">
+											 <a href="<c:url value='/fruit/detailViewFruit/${fru.fruNo}'/>"><button type="button" class="product-button"><i class="fa fa-search"></i></button></a>
+											 <button type="submit" class="product-button" onClick=btn()><i class="fa fa-heart-o"></i></button>
+											 <button type="submit" class="product-button"><i class="fa fa-shopping-basket"></i></button>
+										 </div>
+										 <div class="product-title">
+											 <div class="product-brand">${fru.fruCompany }</div> 
+											 <div class=product-info>${fru.fruInfo }</div>
+										 </div>
+										 <div class="product-price"> 
+											 <span class=product-origin-price>
+											 <c:if test="${not empty fru.fruOriginPrice && 0 != fru.fruOriginPrice}" >${fru.fruOriginPrice }</c:if></span>
+											 <span class="product-price">${fru.fruPrice }원</span>
+										 </div>		               
+										 <div class="product-subinfo">${fru.fruSubInfo }</div>		
+									</div>
+								</c:forEach>
+							</div> 
+						</div>
+					</article> 
+					<article id="button"><!-- 버튼박스 -->
+				        <div id="buttonBox">
+				             	<button id="btn" align="left">오늘의 과일은??</button>
+						     <div id="random">
+						          <a href="#"><img src="<c:url value='/image/fruit01.jpg'/>"></a>
+						     </div>
+				       </div>
+		        	</article>
 	    	</section>
+	    	
+	        <!--  bottom -->         
+	        <c:import url="/WEB-INF/views/layout/bottom.jsp" />
 	    </div>
     	<script src="<c:url value='/js/login.js' />"></script>
     	<script src="<c:url value='/js/slideShow.js' />"></script>

@@ -17,20 +17,21 @@
 		<body>
 		<div id="wrap">
 		  <c:import url="/WEB-INF/views/layout/top.jsp" />
-		<h3>상품 검색</h3>
-		<form id="fruSearchFrm">
-			<select id="type" name="type">
-				<option value="fruInfo">상품명</option>
-				<option value="fruCompany">제조회사</option>
-			</select>
-			 <input type="text" name="keyword" class="input-search-word" placeholder="검색어 입력">
-            <button type="submit" class="header-item"><i class="fa fa-search"></i></button>
-		</form>
+				<h3>상품 검색</h3>
+				<form id="fruSearchFrm">
+					<select id="type" name="type">
+						<option value="fruInfo">상품명</option>
+						<option value="fruCompany">제조회사</option>
+					</select>
+					 <input type="text" name="keyword" class="input-search-word" placeholder="검색어 입력">
+		            <button type="submit" class="header-item"><i class="fa fa-search"></i></button>
+				</form>
 		
-		<!-- 검색 결과 출력  -->
-		<div id="searchResultBox"></div>
+				<!-- 검색 결과 출력  -->
+				<div id="searchResultBox"></div>
 
-</div>
+		  	<c:import url="/WEB-INF/views/layout/bottom"src/main/resources/static/image/logo.png".jsp" />
+		</div>
 	</body>
 	
 </html>
