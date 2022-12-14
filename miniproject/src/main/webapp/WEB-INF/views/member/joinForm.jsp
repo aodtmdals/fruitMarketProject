@@ -18,9 +18,9 @@
 		</style>
     <body>
 	   <!--  top -->     
-      <c:import url="/WEB-INF/views/layout/top.jsp" />
 	<br><br><br>
 		<div id="wrap">
+      		<c:import url="/WEB-INF/views/layout/top.jsp" />
 	        <h1 align="center">회원 정보 입력</h1>
 	        <h4 align="center">기본 정보 입력</h4>
 	        <hr>
@@ -53,7 +53,7 @@
 	            </tr>             
 	          </table>
       		</form>	
+      	 	<c:import url="/WEB-INF/views/layout/bottom.jsp" />
       	 </div>    
-      	 <c:import url="/WEB-INF/views/layout/bottom.jsp" />
     </body>
 </html>

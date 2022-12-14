@@ -13,6 +13,31 @@
 		<script src="<c:url value='/js/Product_Click.js'/>"></script>
 		<script src="<c:url value='/js/index.js'/>"></script>
        	<c:import url="/WEB-INF/views/layout/head.jsp" />
+       	<script type="text/javascript">
+			var qty = 1;
+			
+			// 주문수량 변경하는 함수
+			function qtyChange(num) {
+				qty = qty + num;
+				if(qty < 1) qty = 1;
+				// 주문액 계산하는 함수 호출
+				calAmount();
+			}
+		
+			// 주문수량 변경될 때 주문액 계산해서 출력하는 함수
+			function calAmount() {
+				// 현재 주문수량과 주문 예정 금액 가져오기
+				var cartQty =  document.getElementById('cartQty');
+				var amount =  document.getElementById('amount');
+				
+				var total = qty * ${prd.prdPrice};
+				
+				// 결과 값 반영
+				cartQty.value = qty;
+				amount.innerHTML = total.toLocaleString(); // 천단위 구분
+			}
+		
+		</script>	
 	</head>
     <body>
       <div id="wrap">
@@ -20,9 +45,10 @@
         	<c:import url="/WEB-INF/views/layout/top.jsp" />
     <article id="content1">
 		<div id="prdtb">
-		<form id="cartDB" method="post" action="<c:url value=''/>">
+		<form id="cartDB" method="post" action="<c:url value='/fruit/insertCart'/>">
 			<table>
 				<thead>
+				
 					<tr><td rowspan="7" id="prdImgtd"><img src="<c:url value='/images/${fru.fruImg}'/>" id="prdimg"></td>
 					<td colspan="2"><a id="fruitTitle">${fru.fruInfo }</a></td></tr>
 					<tr><td>정가</td><td><fmt:formatNumber value="${fru.fruOriginPrice }" pattern="#,###" /> 원</td></tr>
@@ -30,7 +56,8 @@
 						<tr>
 							<td>수량</td>
 							<td>
-								<select id="ordnum" name="cartQty">
+							<input type="hidden" id="fruNo" name="fruNo" value="${fru.fruNo}">
+								<select id="cartQty" name="cartQty">
 								<option value="1"selected>1</option>
 									<option value="2">2</option>
 									<option value="3">3</option>
@@ -44,9 +71,17 @@
 							</td>
 						</tr>
 						<tr><td>배송비</td><td>3,000</td></tr>
-						<tr><td colspan="2" id="total"><fmt:formatNumber value="${fru.fruPrice}" pattern="#,###" /> 원</td></tr>
-					<tr><td colspan="2" id='Btns_td'><input type="submit" value="장바구니">
-					<button id="orderBtn" type='button'>주문하기</button></td></tr>
+						<tr><td colspan="2"><span id="amount"><fmt:formatNumber value="${fru.fruPrice}" pattern="#,###" /></span> 원</td></tr>
+					 <input type="hidden" id="fruPrice" value="${fru.fruPrice}"></input>
+					<tr><td colspan="2">
+					<c:if test="${empty sessionScope.sid }">
+						<button><a href="<c:url value='/member/loginForm'/>">로그인</a></button>
+					</c:if>
+					<!-- 로그인 한 경우에는 [장바구니] [주문하기] 버튼 출력  -->
+					<c:if test="${not empty sessionScope.sid }">
+					<input  id='Btns_td' type="submit" value="장바구니">
+					<button id="orderBtn" type='button'>주문하기</button>
+					</c:if></td></tr>
 				</thead>
 			</table>
 			</form>

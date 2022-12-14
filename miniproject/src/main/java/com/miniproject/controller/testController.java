@@ -17,7 +17,11 @@ public class testController {
 	@RequestMapping("/")
 	public String index(Model model) {
 		 ArrayList<FruitVO>fruList=service.listAllFruit();
+		 ArrayList<FruitVO> bestList=service.listBestFruit();
+
 		 model.addAttribute("fruList",fruList);
+		 model.addAttribute("bestList",bestList);
+
 		return "index";
 	}
 	

@@ -59,7 +59,13 @@ public class FruitService implements IFruitService {
 	@Override
 	public ArrayList<FruitVO> FruitSearch(HashMap<String, Object> map) {
 		// TODO Auto-generated method stub
-		return null;
+		return dao.FruitSearch(map);
+	}
+
+	@Override
+	public ArrayList<FruitVO> listBestFruit() {
+		// TODO Auto-generated method stub
+		return dao.listBestFruit();
 	}
 
 }
