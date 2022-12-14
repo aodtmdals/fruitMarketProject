@@ -1,15 +1,18 @@
 package com.miniproject.controller;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.miniproject.model.FruitVO;
 import com.miniproject.service.FruitService;
+
 
 
 @Controller
@@ -40,6 +43,18 @@ public class FruitController {
 	 		model.addAttribute("fru", fru);		
 	 		return "fruit/fruitDetailView";
 	 	}
+	 	  @RequestMapping("/fruit/fruitSearchForm")
+		   public String fruitSearchForm() {
+			    return "/fruit/fruitSearchForm";
+		   }
+		 
+		   @RequestMapping("/fruit/fruitSearch")
+		   public String fruitSearch(@RequestParam HashMap<String,Object>param,Model model){
+			   ArrayList<FruitVO>fruList=service.FruitSearch(param);
+			   model.addAttribute("fruList",fruList);
+			   return"fruit/fruitSearchResultView";
+			   
+		   }
 	}
 
 
