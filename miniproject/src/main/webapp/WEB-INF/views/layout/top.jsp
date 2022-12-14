@@ -26,8 +26,8 @@
 
 			<c:if test="${empty sessionScope.sid }">
 				<ul>
-					<a class="header-item focus"><li><i class="fa fa-commenting"></i>챗봇</li></a>
-					<a class="header-item" href="<c:url value='/cart'/>"><li>장바구니</li></a>
+							<a class="header-item focus" href="<c:url value='/chat'/>"><li><i class="fa fa-commenting"></i>챗봇</li></a>
+							<a class="header-item" href="<c:url value='/fruit'/>"><li>장바구니</li></a>
 					<a class="header-item" href="<c:url value='/member/loginForm'/>"><li>로그인</li></a>
 					<a class="header-item" href="<c:url value='/member/joinForm'/>"><li>회원가입</li></a>
 				</ul>
@@ -35,8 +35,8 @@
 			
 			<c:if test="${not empty sessionScope.sid }">
 							${sessionScope.sid}님 환영합니다! 
-							<a class="header-item focus"><li><i class="fa fa-commenting"></i>챗봇</li></a>
-							<a class="header-item" href="<c:url value='/cart'/>"><li>장바구니</li></a>
+							<a class="header-item focus" href="<c:url value='/chat'/>"><li><i class="fa fa-commenting"></i>챗봇</li></a>
+							<a class="header-item" href="<c:url value='/fruit'/>"><li>장바구니</li></a>
 							<a class="header-item" href="<c:url value='/member/logout'/>"><li>로그아웃</li></a> 
 							<a class="header-item" href="<c:url value='/member/myPage'/>"><li>My Page</li></a>
 						</c:if>	            	

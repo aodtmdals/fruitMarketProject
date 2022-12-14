@@ -4,26 +4,26 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
   <mapper namespace="com.miniproject.dao.IFruitDAO">
-  <resultMap id="fruResult" type="com.miniproject.model.FruitVO">
-  		<result property="fruNo"  column="fruNo"  />
-  		<result property="fruImg"  column="fruImg"  />
-  		<result property="fruCompany"  column="fruCompany"  />
-  		<result property="fruInfo"  column="fruInfo"  />
-  		<result property="fruOriginPrice"  column="fruOriginPrice"  />
-  		<result property="fruPrice"  column="fruPrice"  />
-  		<result property="fruSubInfo"  column="fruSubInfo"  />
-  		<result property="fruStock"  column="fruStock"  />
-  		<result property="ctgId"  column="ctgId"  />
-  	</resultMap>
-  	
-  	<!-- 전체상품 조회 -->
-  		<select id="listAllFruit" parameterType="string" resultMap="fruResult">
-  	SELECT * FROM fruit 
-  	</select>
-  	<select id="ctgListFruit" parameterType="string" resultMap="fruResult">
-  	SELECT * FROM fruit WHERE ctgId=#{ctgId} ORDER BY fruNo
-  	</select>
-  	 <select id="detailViewFruit" parameterType="string" resultType="com.miniproject.model.FruitVO">
-  select * from fruit where fruNo=#{fruNo}
-  </select>
-  </mapper>
+	  <resultMap id="fruResult" type="com.miniproject.model.FruitVO">
+	  		<result property="fruNo"  column="fruNo"  />
+	  		<result property="fruImg"  column="fruImg"  />
+	  		<result property="fruCompany"  column="fruCompany"  />
+	  		<result property="fruInfo"  column="fruInfo"  />
+	  		<result property="fruOriginPrice"  column="fruOriginPrice"  />
+	  		<result property="fruPrice"  column="fruPrice"  />
+	  		<result property="fruSubInfo"  column="fruSubInfo"  />
+	  		<result property="fruStock"  column="fruStock"  />
+	  		<result property="ctgId"  column="ctgId"  />
+	  	</resultMap>
+	  	
+	  	<!-- 전체상품 조회 -->
+	  	<select id="listAllFruit" parameterType="string" resultMap="fruResult">
+	  		SELECT * FROM fruit 
+	  	</select>
+	  	<select id="ctgListFruit" parameterType="string" resultMap="fruResult">
+	  		SELECT * FROM fruit WHERE ctgId=#{ctgId} ORDER BY fruNo
+	  	</select>
+	  	 <select id="detailViewFruit" parameterType="string" resultType="com.miniproject.model.FruitVO">
+		  	select * from fruit where fruNo=#{fruNo}
+		  </select>
+ 	 </mapper>
