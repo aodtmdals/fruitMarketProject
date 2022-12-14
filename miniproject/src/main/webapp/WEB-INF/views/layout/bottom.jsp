@@ -4,6 +4,6 @@
        <link rel="stylesheet" type="text/css" href="<c:url value='/css/footer.css' />">
         <footer class="footer">
             <div id="companyInfo">
-             <img src="<c:url value='/image/footer.png'/>">              
+             <img src="<c:url value='/image/푸터.PNG'/>">              
             </div>
         </footer>

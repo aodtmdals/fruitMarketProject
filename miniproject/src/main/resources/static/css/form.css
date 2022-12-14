@@ -1,0 +1,13 @@
+#fruSearchFrm{
+	margin:20px 20px;
+}
+#type{
+	margin-left:0px;
+	height: 40px;
+    padding: 4px 6px;
+    border: 1px solid #dcdcdc;
+    background: #fff;
+    color: #666;
+    display:none;
+    
+}
