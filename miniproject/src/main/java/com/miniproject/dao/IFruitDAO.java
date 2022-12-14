@@ -17,3 +17,4 @@ public interface IFruitDAO {
 	public ArrayList<FruitVO>FruitSearch(HashMap<String,Object>map);//상품검색
 	
 }
+ 

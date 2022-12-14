@@ -23,7 +23,7 @@
 	  	<select id="listBestFruit" resultMap="fruResult">
 	  	<![CDATA[
 	  	select * from fruit order by rand() limit 4;
-	  	 ]]>
+	  	 ]]> 
 	  	</select>
   	
 	  	<select id="ctgListFruit" parameterType="string" resultMap="fruResult">

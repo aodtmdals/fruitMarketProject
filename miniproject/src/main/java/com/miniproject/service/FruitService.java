@@ -65,7 +65,7 @@ public class FruitService implements IFruitService {
 	@Override
 	public ArrayList<FruitVO> listBestFruit() {
 		
-		return dao.listBestFruit();
+		return dao.listBestFruit(); 
 	}
 
 }

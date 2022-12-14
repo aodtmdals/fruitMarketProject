@@ -80,4 +80,4 @@
     	<script src="<c:url value='/js/slideShow.js' />"></script>
     	<script src="<c:url value='/js/button.js' />"></script>
 	</body>
-</html>
+</html> 

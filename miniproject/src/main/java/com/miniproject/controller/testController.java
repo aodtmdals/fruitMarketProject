@@ -23,7 +23,7 @@ public class testController {
 		return "index";
 	}
 	
-
+ 
 	@RequestMapping("/fruit")
 	public String cartListView() {
 		return "fruit/cartListView";
