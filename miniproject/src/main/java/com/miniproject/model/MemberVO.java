@@ -1,19 +1,16 @@
 package com.miniproject.model;
 
 
-
 public class MemberVO {
 	private String memId;
 	private String memPw;
 	private String memName;
 	private String memEmail;
-
 	private String memHP;
 	private String memZipcode;
 	private String memAddress1;
 	private String memAddress2;
 	private String memNo;
-	
 	
 	public String getMemId() {
 		return memId;
@@ -70,9 +67,6 @@ public class MemberVO {
 		this.memNo = memNo;
 	}
 	
-
 	
-	
-
 	
 }

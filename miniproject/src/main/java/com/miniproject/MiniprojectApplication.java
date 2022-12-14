@@ -7,7 +7,7 @@ import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
 @ComponentScan(basePackages = {"com.miniproject"})
-@MapperScan(basePackages = {"com.miniproject"})
+@MapperScan(basePackages = {"com..miniproject"})
 public class MiniprojectApplication {
 
 	public static void main(String[] args) {
