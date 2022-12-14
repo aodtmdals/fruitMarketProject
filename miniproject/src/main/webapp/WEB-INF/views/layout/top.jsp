@@ -1,11 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+        	<script src="<c:url value='/js/header.js' />"></script>
         <header>
             <div class="header-menu">
                 <div>
                     <ul>
-                        <a class="header-item" href="#"><li>전체상품</li></a>
+                        <a class="header-item" href="<c:url value='/fruit/fruitAllList'/>"><li>전체상품</li></a>
                         <a class="header-item" id="dropdown-btn"><li>제철과일 <i class="fa fa-chevron-down"></i></li></a>
                         <div id="subMenuBox">
                             <div class="subMenuItem hidden" id="subMenuItem1">

@@ -1,3 +1,4 @@
+
 @charset "UTF-8";
 
 
@@ -18,7 +19,6 @@ a{
 a:hover{
     cursor: pointer;
 }
-
 
 .nev-menu,
 .header-menu{
@@ -79,6 +79,30 @@ a:hover{
     align-items: center;
 }
 
+.dropdown-item{
+    padding: 10px;
+    font-size: small;
+}
+
+.dropdown-item:hover{
+    background-color: rgba(0,0,0,0.1);
+    cursor: pointer;
+}
+
+#subMenuItem1 {
+    position:absolute;
+    padding: 10px 0px;
+    background-color: white;
+    border: 1px solid;
+    top:5%;
+    left:19%;
+    z-index:2;
+}
+#subMenuItem1 div{
+    padding: 10px 25px;
+    align-items: center;
+    text-align: center;
+}
 
 /*드롭다운 메뉴 숨기는 css*/
 .hidden{

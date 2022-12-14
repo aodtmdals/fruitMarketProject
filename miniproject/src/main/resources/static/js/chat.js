@@ -1,8 +1,18 @@
+
 const chatTitle = document.querySelectorAll("#chat-title");
 const dropdown = document.getElementById("more-dropdown");
 const dropdownItem = document.querySelectorAll(".dropdown-item");
 
 let clickCount =  0;
+let headerClickCount = 0; 
+
+function buttonChange(){
+    if(inputMsg.value){
+        questionBtn.disabled = false;
+    } else{
+        questionBtn.disabled = true;
+    }
+}
 
 
 $(document).ready(function(){
@@ -23,7 +33,7 @@ $(document).ready(function(){
             //db에서 받아와 처리하기
         }
     });
-
+    
     //메세지 띄우기 
     $('#questionFrm').on('submit', function(){
         event.preventDefault();

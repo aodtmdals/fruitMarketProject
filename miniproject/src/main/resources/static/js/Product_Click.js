@@ -26,7 +26,7 @@
 	
 	$('#cartBtn').on('click', function(){
 		alert('장바구니에 넣었습니다');
-  		window.location.href ="../SpBasket/SpBasket2.html";
+  		window.location.href ="/fruit/insertCart";
 
 		
 	});	
