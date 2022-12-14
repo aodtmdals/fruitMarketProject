@@ -1,0 +1,250 @@
+@charset "UTF-8";
+
+#wrap{
+	width:1280px;
+	margin:0 auto;
+	text-align:center;
+	position:relative;
+}
+* { margin:0 auto; }
+
+/*기본 설정 : 리스트 스타일 풀고 a태그 데코레이션 없앰*/
+ul{
+    padding:0px;
+}
+
+li{
+    list-style: none;
+}
+
+a{ 
+    text-decoration: none;
+    color: black;
+}
+
+a:hover{
+    cursor: pointer;
+}
+
+.nev-menu,
+.header-menu{
+    display: flex;
+    align-items: center;
+    margin:20px 80px;
+    padding-top: 20px;
+}
+
+.logo img{
+    width: 180px;
+}
+.header-item li,
+.logo{
+    display: inline;
+    padding: 10px 20px;
+    color:gray;
+    font-size: small;
+}
+
+.header-item i{
+    margin-right: 10px
+}
+.header-item li:hover{
+    color: olivedrab;
+    font-weight: bold;
+    transition: color 1s, weight 1s;
+}
+
+/*지금 들어와있는 페이지를 알려주기 위해 볼드처리*/
+.focus li{
+    color: #000;
+    font-weight: bold;
+}
+
+/*제철 과일 선택하면 선택됐다는 표시로 볼드처리*/
+.select-dropdown{
+    font-weight: bold;
+}
+
+.input-search-word{
+    float: left;
+    height: 30px;
+    width: 400px;
+    border:3px solid olivedrab;
+    padding:3px 10px;
+}
+.input-search-word:focus{
+    outline: 0px;
+}
+.search-button{
+    display: flex;
+    height: 42px;
+    width: 42px;
+    background-color: olivedrab;
+    color: white;
+    border:0px;
+    align-items: center;
+}
+
+.dropdown-item{
+    padding: 10px;
+    font-size: small;
+}
+
+.dropdown-item:hover{
+    background-color: rgba(0,0,0,0.1);
+    cursor: pointer;
+}
+
+#subMenuItem1 {
+    position:absolute;
+    padding: 10px 0px;
+    background-color: white;
+    border: 1px solid;
+    top:5%;
+    left:19%;
+    z-index:2;
+}
+#subMenuItem1 div{
+    padding: 10px 25px;
+    align-items: center;
+    text-align: center;
+}
+
+/*드롭다운 메뉴 숨기는 css*/
+.hidden{
+    display: none;
+}
+
+.head2{
+	padding: 40px;
+	text-align:center;
+	  font-size: 25px;
+	font-weight: bold;	
+}
+
+
+.head3{
+ 
+    height: 35px;
+    margin: 10px 0;
+ }
+ select{  
+    float :right;
+    height: 40px;
+    padding: 4px 6px;
+    border: 1px solid #dcdcdc;
+    background: #fff;
+    color: #666;
+   margin-right:32px;
+ }
+  .products{
+	width:1170px;
+	margin:0 auto;
+	text-align:center;
+}
+ .product-list{
+  width:1150px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.product{
+  width: 225px;
+  height:370px;
+  text-align: center;
+  display: block;
+  color: #545454;
+  text-decoration: none;
+  float: left;
+  margin-left:30px;
+  margin-right: 30px;
+  margin-bottom:80px;
+  
+} 
+  .product img{
+      width:225px;
+      height:225px;
+      transition: all 0.2s linear;
+ }
+.imgbox{
+	width:240px;
+      height:240px;
+      overflow:hidden;
+      line-height:240px;
+}
+
+.product img:hover{
+         transform: scale(1.4);    
+ } 
+ .product-button{
+  height: 30px;
+    width: 30px;
+    background-color:white;
+    border:1px solid #b2b2b2;
+    color:gray;
+    margin-bottom:10px;
+ }
+ 
+
+.product-brand{
+		color:black;
+	font-weight: bold;
+    line-height: 1.5;
+    margin-bottom:10px;
+    
+}
+	
+.product-info{
+	color:black;
+	 line-height: 1.5;
+    margin-bottom:10px;
+ 
+}
+.product-origin-price{
+	text-decoration: line-through;
+	color: #b2b2b2;
+	
+}
+.product-price{
+	color:black;
+		 font-weight: bold;
+		  margin-bottom:10px;
+		  
+}
+.product-subinfo{
+	
+	margin-top:15px;
+	font-size:12px;
+	color:gray;
+	 margin-bottom:15px;
+}
+
+#page-button{
+     
+  height: 30px;
+    width: 30px;
+
+    background-color:white;
+    border:1px solid #b2b2b2;
+    color:gray;
+    margin-top:50px;
+    margin-bottom:10px;
+ }
+ footer{
+ clear:both;
+ }
+.footer #companyInfo {
+   width: 1280px;
+   vertical-align: middle;
+   text-align: center;
+   position: relative;
+   padding-left: 30px;
+   padding-right: 30px;
+   margin: 0 auto;
+}
+.footer #companyInfo img{
+   text-align: center;
+   width: 1280px;
+   height: 455px;
+}
+
+

@@ -12,7 +12,7 @@ public class MemberVO {
 	private String memAddress1;
 	private String memAddress2;
 	private String memNo;
-	\
+	
 	public String getMemId() {
 		return memId;
 	}
