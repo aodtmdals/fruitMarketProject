@@ -11,37 +11,62 @@
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/SpBasket.css' />">
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/menu.css' />">
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/index.css' />">
-			<script src="<c:url value='/js/cartListView.js' />"></script>
+		<script src="<c:url value='/js/header.js' />"></script>
+		<c:import url="/WEB-INF/views/layout/top.jsp" />
+		<script src="<c:url value='/js/cartListView.js' />"></script>
 			<script type="text/javascript">
-			var qty = 1;
+			 $(document).ready(function(){
+			  var qty = 0;			
+			  var sum = 0;
+			 
+				// 배열로 가져오기
+			  var cartQty = $('.cartQty').get(); // 주문수량
+			  var amount = $('.amount').get();  // 총금액
+			  var prdPrice = $('.prdPrice').get(); // 상품가격
+			  
+			  // - 버튼 클릭했을  1 감소
+			  $('.btnM').each(function(index) {
+				 	$(this).on('click', function(){
+				 		qty = Number(cartQty[index].value);
+				 		qty = qty - 1;
+				 		if(qty < 1) qty = 1;
+				 		calculate(index);
+				 	}); 	
+				 	
+			 	}); 
+			  
+			  // + 버튼 클릭했을 때 1 증가
+			  $('.btnP').each(function(index) {
+				 	$(this).on('click', function(){
+				 		qty = Number(cartQty[index].value);
+				 		qty = qty + 1;
+				 		if(qty < 1) qty = 1;
+				 		calculate(index);
+				 	}); 	
+				 	
+			 	}); 
+			  
+			  // 각 요소를 배열로 가져와서 인덱스에 해당되는 작업 처리
+				function calculate(index){
+					
+					cartQty[index].value = qty;  // 주문수량 입력란 값 변경
+					var num = Number(prdPrice[index].innerHTML.replace(/,/g,""));  //가격 읽어와서(쉼표 제거해서 숫자로 변환)
+					amount[index].innerHTML = (cartQty[index].value * num).toLocaleString(); // 총금액 계산해서 (천단위 구분해서 출력)
+					
+					// 총구매예정금액 계산
+					amount.forEach( function(item){
+						sum += Number(item.innerHTML.replace(/,/g,""));
+					} );
+					$('#sum').text(sum.toLocaleString());
+					sum = 0;	 
+				}
+				
+			}); 
 			
-			// 주문수량 변경하는 함수
-			function qtyChange(num) {
-				qty = qty + num;
-				if(qty < 1) qty = 1;
-				// 주문액 계산하는 함수 호출
-				calAmount();
-			}
-		
-			// 주문수량 변경될 때 주문액 계산해서 출력하는 함수
-			function calAmount() {
-				// 현재 주문수량과 주문 예정 금액 가져오기
-				var cartQty =  document.getElementById('cartQty');
-				var amount =  document.getElementById('amount');
-				
-				var total = qty * ${prd.prdPrice};
-				
-				// 결과 값 반영
-				cartQty.value = qty;
-				amount.innerHTML = total.toLocaleString(); // 천단위 구분
-			}
-		
 		</script>	
 	</head>
 	<body>
 		<div id="wrap">
-			<c:import url="/WEB-INF/views/layout/top.jsp" />
-			
 			   <div class ="SpBasket">
 				<h2>장바구니</h2>
 				
@@ -60,14 +85,16 @@
 				<tbody id="tbody">
 				<c:forEach var="fru" items="${cartList}">
 					 <tr>
-			               <td><img src="<c:url value='/images/${fru.fruImg}'/>" width="100" height="70">${fru.fruInfo }</td>
+			               <td><img  src="<c:url value='/images/${fru.fruImg}'/>" width="100" height="70">${fru.fruInfo }</td>
 			               <td>${fru.fruNo}</td>
-			               <td align="right"><fmt:formatNumber value="${fru.fruPrice }" pattern="#,###" />원</td>
-			               <td>
+			               <td align="right"><span class="prdPrice"><fmt:formatNumber  value="${fru.fruPrice}" pattern="#,###" /></span> 원
+			                <input type="hidden" id="fruPrice"  value="${fru.fruPrice}">
+			               </td>
 			               
-			               <input type="button" value="-" onClick="qtyChange(-1)"> 
-							<input type="text" id="cartQty" name="cartQty"  value="${fru.cartQty}"  size="1" readonly> 
-							<input type="button" value="+" onClick="qtyChange(1)">
+			               <td>
+			               <input type="button" value=" - " class="btnM" >
+							<input type="text" class="cartQty" name="cartQty" value="${fru.cartQty}"  size="1" readonly>
+							<input type="button" value=" + "  class="btnP" >
 			               
 			               	   <input type="hidden" name="cartNo" value="${fru.cartNo}"> 
 			               	   <input type="hidden" name="memId" value="${fru.memId}">
@@ -76,26 +103,35 @@
 			               <span class="amount">
 			               <c:set var="amount" value="${fru.fruPrice * fru.cartQty}"/>
 			               <c:set var="sum" value="${sum + amount}"/>
-			               <fmt:formatNumber value="${amount}" pattern="#,###" />원
+			               <fmt:formatNumber value="${ amount}" pattern="#,###" />
 			               </span>
+			               원
 			               </td>
 			               <td><input type="checkbox" class="chkDelete" data-cartNo="${fru.cartNo}"><!-- value 사용해도 됨 --></td>
 			            	               
 			            </tr>
-			             <tr>
+			             </c:forEach>
+			             <tr id="allcart">
+			             
 			         <td colspan="5"> 총구매예정금액</td>
-			         <td align="right"><fmt:formatNumber value="${sum}" pattern="#,###" />원</td>       
+			        
+			         <td align="right"> 
+			         <span id="sum">
+			         <fmt:formatNumber value="${sum}" pattern="#,###" />
+			          </span>원</td>    
+			         
 			         </tr>
-			   </c:forEach>
+			  
 				</tbody>
+				
 			</table>
 				
 				<div class="prd1">
 						<div class="btn">
 					
-						<a href="<c:url value='/list' />" ><img src="<c:url value='/image/btn1.png'/>" id="btnimg1"></a>
+						<a href="<c:url value='/fruit/fruitCtgListView' />" ><img src="<c:url value='/image/btn1.png'/>" id="btnimg1"></a>
 						
-						<a href="<c:url value='/product/deleteAllCart' />"  ><img src="<c:url value='/image/btn4.png'/>"  id="btnimg4" ></a>
+						<a href="<c:url value='/fruit/deleteAllCart' />"  ><img src="<c:url value='/image/btn4.png'/>"  id="btnimg4" ></a>
 						
 						</div>
 						<div class="msg">

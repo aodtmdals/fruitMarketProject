@@ -55,6 +55,7 @@ public class CartController {
 		String memId = (String) session.getAttribute("sid");
 		ArrayList<CartVO> cartList = service.cartList(memId);
 		
+		
 		model.addAttribute("cartList", cartList);
 		return "fruit/cartListView";
 	}
@@ -84,15 +85,11 @@ public class CartController {
 	service.deleteAllCart(memId);
 	
 
-	return "redirect:/cart";
+	return "redirect:/fruit/cartList";
 	}
 	
 	
 }
-
-
-
-
 
 
 
