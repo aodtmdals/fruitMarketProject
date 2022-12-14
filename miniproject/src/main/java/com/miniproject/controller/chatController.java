@@ -14,5 +14,4 @@ public class chatController {
 	public String chat() {
 		return "product/chat";
 	}
-	
 }
