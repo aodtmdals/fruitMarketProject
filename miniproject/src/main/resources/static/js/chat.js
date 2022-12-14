@@ -1,4 +1,7 @@
 
+
+const questionBtn = document.getElementById("question-button");
+const inputMsg = document.getElementById("send-message");
 const sendMsg = document.getElementsByClassName("message-area");
 const chatTitle = document.querySelectorAll("#chat-title");
 const confirmCheck = document.getElementById("not-confirm-message");
@@ -9,23 +12,23 @@ const dropdown = document.getElementById("more-dropdown");
 const dropdownItem = document.querySelectorAll(".dropdown-item");
 
 let clickCount =  0;
+let headerClickCount = 0; 
 
+function buttonChange(){
+    if(inputMsg.value){
+        questionBtn.disabled = false;
+    } else{
+        questionBtn.disabled = true;
+    }
+}
 
-$(document).ready(function(){
-
-    //메세지 버튼 활성화
-    $('#send-message').on('keyup', function(){
-        let onMessage = $('#send-message').val();
-        if(onMessage){
-            $('#question-button').prop("disabled", false)
-        } else{
-            $('#question-button').prop("disabled", true)
-        }
-    });
-
-});
-
-function setChatDate(){
+function question(){
+    const newSendBox = document.createElement('div');
+    const newSpan =document.createElement('span');
+    const newImg =document.createElement('img');
+    const newSendMsg = document.createElement('div');
+    const sendmessage = document.createElement('span');
+    const msgTime = document.createElement('div');
 
     const time = new Date();
     let amPm = '오후';
