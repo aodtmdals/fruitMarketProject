@@ -1,11 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+        	<script src="<c:url value='/js/header.js' />"></script>
         <header>
             <div class="header-menu">
                 <div>
                     <ul>
-                        <a class="header-item" href="#"><li>전체상품</li></a>
+                        <a class="header-item" href="<c:url value='/fruit/fruitAllList'/>"><li>전체상품</li></a>
                         <a class="header-item" id="dropdown-btn"><li>제철과일 <i class="fa fa-chevron-down"></i></li></a>
                         <div id="subMenuBox">
                             <div class="subMenuItem hidden" id="subMenuItem1">
@@ -23,9 +24,9 @@
                 <div>
                     <ul>
                         <a class="header-item focus"><li><i class="fa fa-commenting"></i>챗봇</li></a>
-                        <a class="header-item" href="#"><li>장바구니</li></a>
-                        <a class="header-item" href="#"><li>로그인</li></a>
-                        <a class="header-item" href="#"><li>회원가입</li></a>
+                        <a class="header-item" href="<c:url value='/cart'/>"><li>장바구니</li></a>
+                        <a class="header-item" href="<c:url value='/login'/>"><li>로그인</li></a>
+                        <a class="header-item" href="<c:url value='/join'/>"><li>회원가입</li></a>
                     </ul>
                 </div>
             </div>
