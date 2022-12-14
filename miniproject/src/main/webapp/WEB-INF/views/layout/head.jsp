@@ -4,7 +4,6 @@
 		<script src="<c:url value='/js/jquery-3.6.1.min.js' />"></script>	
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/common.css' />">
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/header.css' />">		
-		<link rel="stylesheet" type="text/css" href="<c:url value='/css/SpBasket.css' />">		
 	   
 		
 		<script src="<c:url value='/js/header.js' />"></script>
