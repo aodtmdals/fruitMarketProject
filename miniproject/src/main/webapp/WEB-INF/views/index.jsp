@@ -43,6 +43,7 @@
 	                <article  id="content1"> <!-- 베스트 상품 -->    
 	                	<div id="productBox" >
 	                		<div class="product_text">
+
 	                		<ul>
 	                			<li>Best 상품 정보2</li>
 	                          </ul>
@@ -73,7 +74,8 @@
 	                </article>
 	               <!--  bottom -->         
 	        	<c:import url="/WEB-INF/views/layout/bottom.jsp" />
-	        </div>
+	    	</section>
+	    </div>
     	<script src="<c:url value='/js/login.js' />"></script>
     	<script src="<c:url value='/js/slideShow.js' />"></script>
     	<script src="<c:url value='/js/button.js' />"></script>

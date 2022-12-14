@@ -9,10 +9,10 @@
                         <a class="header-item" id="dropdown-btn"><li>제철과일 <i class="fa fa-chevron-down"></i></li></a>
                         <div id="subMenuBox">
                             <div class="subMenuItem hidden" id="subMenuItem1">
- 						<div class="dropdown-item header-dropdown-item"><a href="#">봄</a></div>
-                        <div class="dropdown-item header-dropdown-item"><a href="#">여름</a></div>
-                        <div class="dropdown-item header-dropdown-item"><a href="#">가을</a></div>
-                        <div class="dropdown-item header-dropdown-item"><a href="#">겨울</a></div>
+		 						<div class="dropdown-item header-dropdown-item"><a href="#">봄</a></div>
+		                        <div class="dropdown-item header-dropdown-item"><a href="#">여름</a></div>
+		                        <div class="dropdown-item header-dropdown-item"><a href="#">가을</a></div>
+		                        <div class="dropdown-item header-dropdown-item"><a href="#">겨울</a></div>
                             </div>
                         </div>  
                     </ul>
@@ -22,6 +22,7 @@
                 </div>
                 
                 <div>
+
 			<c:if test="${empty sessionScope.sid }">
 				<ul>
 					<a class="header-item focus"><li><i class="fa fa-commenting"></i>챗봇</li></a>
