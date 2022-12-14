@@ -47,7 +47,7 @@
 	                		<ul>
 	                			<li>Best 상품 정보2</li>
 	                          </ul>
-			<c:forEach var="fru" items="${fruList }">
+			<c:forEach var="fru" items="${bestList }">
           <div class="products">
           <div class="product-list">
          <a href="<c:url value='/fruit/detailViewFruit/${fru.fruNo}' />" class="product">

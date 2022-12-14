@@ -62,4 +62,10 @@ public class FruitService implements IFruitService {
 		return null;
 	}
 
+	@Override
+	public ArrayList<FruitVO> listBestFruit() {
+		
+		return dao.listBestFruit();
+	}
+
 }
