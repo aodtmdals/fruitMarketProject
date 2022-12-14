@@ -93,10 +93,7 @@
 						alert("전체삭제 되었습니다.");
 					
 				});
-				$('.button').on('click', function(){
-					alert("장바구니가 비었습니다.");
-					
-				});
+				
 				
 				
 				// btn 클릭했을 때

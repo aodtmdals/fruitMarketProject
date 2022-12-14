@@ -11,37 +11,97 @@
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/SpBasket.css' />">
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/menu.css' />">
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/index.css' />">
+		<script src="<c:url value='/js/header.js' />"></script>
+		<c:import url="/WEB-INF/views/layout/top.jsp" />
 			<script src="<c:url value='/js/cartListView.js' />"></script>
 			<script type="text/javascript">
-			var qty = 1;
 			
-			// 주문수량 변경하는 함수
-			function qtyChange(num) {
-				qty = qty + num;
-				if(qty < 1) qty = 1;
-				// 주문액 계산하는 함수 호출
-				calAmount();
-			}
-		
-			// 주문수량 변경될 때 주문액 계산해서 출력하는 함수
-			function calAmount() {
-				// 현재 주문수량과 주문 예정 금액 가져오기
-				var cartQty =  document.getElementById('cartQty');
-				var amount =  document.getElementById('amount');
+			
+			  var qty = 1;
 				
-				var total = qty * ${prd.prdPrice};
+				// 주문수량 변경하는 함수
+				function qtyChange(num) {
+					qty = qty + num;
+					if(qty < 1) 
+						qty = 1;
+					// 주문액 계산하는 함수 호출
+					calAmount();
+				}
+			
+				// 주문수량 변경될 때 주문액 계산해서 출력하는 함수
+				function calAmount() {
+					// 현재 주문수량과 주문 예정 금액 가져오기
+					var cartQty =  document.getElementById('cartQty');
+					var total1 =  document.getElementById('total1');
+					
+					
+				var total = qty * $("#fruPrice").val();
+				var total1 = sum + total;
+				var total2 = sum;
 				
-				// 결과 값 반영
-				cartQty.value = qty;
-				amount.innerHTML = total.toLocaleString(); // 천단위 구분
-			}
-		
+			
+			
+				//	var total = qty * ${prd.prdPrice};	
+				
+				
+				
+					// 결과 값 반영
+				 cartQty.value = qty; 
+				 $("#amount").html(total.toLocaleString());
+				 $("#sum").html(total1.toLocaleString());
+				//amount.innerHTML = total.toLocaleString(); // 천단위 구분  
+				}  
+			
+			/* 	var qty = 1;
+				
+				// 주문수량 변경하는 함수
+				function qtyChange(num) {
+					qty = qty + num;
+					if(qty < 1) qty = 1;
+					// 주문액 계산하는 함수 호출
+					calAmount();
+				}
+			
+				// 주문수량 변경될 때 주문액 계산해서 출력하는 함수
+				function calAmount() {
+					// 현재 주문수량과 주문 예정 금액 가져오기
+					var cartQty =  document.getElementById('cartQty');
+					var amount =  document.getElementById('amount');
+					
+					var total = qty * ${prd.prdPrice};
+					
+					// 결과 값 반영
+					cartQty.value = qty;
+					amount.innerHTML = total.toLocaleString(); // 천단위 구분
+				} 
+			 */
+				
+		/* 	$(document).ready(function(){
+				
+				$("#btnM").on("click", function(){
+				 	alert("#btnM click")
+					
+					qtyChange(-1);
+
+					
+				});
+				$("#btnP").on("click", function(){
+				 	alert("#btnP click")
+					
+					qtyChange(1);
+
+					
+				});
+				
+				
+			});
+			 */
+
+			
 		</script>	
 	</head>
 	<body>
 		<div id="wrap">
-			<c:import url="/WEB-INF/views/layout/top.jsp" />
-			
 			   <div class ="SpBasket">
 				<h2>장바구니</h2>
 				
@@ -60,34 +120,45 @@
 				<tbody id="tbody">
 				<c:forEach var="fru" items="${cartList}">
 					 <tr>
-			               <td><img src="<c:url value='/images/${fru.fruImg}'/>" width="100" height="70">${fru.fruInfo }</td>
+			               <td><img  src="<c:url value='/images/${fru.fruImg}'/>" width="100" height="70">${fru.fruInfo }</td>
 			               <td>${fru.fruNo}</td>
-			               <td align="right"><fmt:formatNumber value="${fru.fruPrice }" pattern="#,###" />원</td>
-			               <td>
+			               <td align="right"><fmt:formatNumber  value="${fru.fruPrice}" pattern="#,###" />원
+			                <input type="hidden" id="fruPrice"  value="${fru.fruPrice}">
+			               </td>
 			               
-			               <input type="button" value="-" onClick="qtyChange(-1)"> 
-							<input type="text" id="cartQty" name="cartQty"  value="${fru.cartQty}"  size="1" readonly> 
-							<input type="button" value="+" onClick="qtyChange(1)">
+			               <td>
+			               <input type="button" value="-" class="btnM" onclick="qtyChange(-1)"> 
+							<input type="text" class="cartQty" name="cartQty" value="1"  size="1" readonly> 
+							<input type="button" value="+" class="btnP" onclick="qtyChange(1)">
 			               
 			               	   <input type="hidden" name="cartNo" value="${fru.cartNo}"> 
 			               	   <input type="hidden" name="memId" value="${fru.memId}">
 			               </td>
 			               <td align="right">
-			               <span class="amount">
+			               <span id="amount">
 			               <c:set var="amount" value="${fru.fruPrice * fru.cartQty}"/>
 			               <c:set var="sum" value="${sum + amount}"/>
-			               <fmt:formatNumber value="${amount}" pattern="#,###" />원
+			               <fmt:formatNumber value="${ amount}" pattern="#,###" />
 			               </span>
+			               원
 			               </td>
 			               <td><input type="checkbox" class="chkDelete" data-cartNo="${fru.cartNo}"><!-- value 사용해도 됨 --></td>
 			            	               
 			            </tr>
+			             </c:forEach>
 			             <tr>
+			             
 			         <td colspan="5"> 총구매예정금액</td>
-			         <td align="right"><fmt:formatNumber value="${sum}" pattern="#,###" />원</td>       
+			        
+			         <td align="right"> 
+			         <span id="sum">
+			         <fmt:formatNumber value="${sum}" pattern="#,###" />
+			          </span>원</td>    
+			         
 			         </tr>
-			   </c:forEach>
+			  
 				</tbody>
+				
 			</table>
 				
 				<div class="prd1">
