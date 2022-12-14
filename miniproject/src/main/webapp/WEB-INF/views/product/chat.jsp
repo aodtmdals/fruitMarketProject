@@ -184,7 +184,7 @@
                             </div>
                             <div>
                                 <div class="question-area">
-                                    <textarea name="textarea" id="send-message" cols="90" rows="5"></textarea>
+                                    <textarea name="textarea" id="send-message" name="message" cols="90" rows="5"></textarea>
                                     <button type="submit" id="question-button" onclick="question()" disabled>질문하기</button>
                                 </div>
                             </div>
