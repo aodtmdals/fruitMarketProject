@@ -1,13 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-    
+ 
+
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="UTF-8">
 		<title>index 메인페이지</title>
         <c:import url="/WEB-INF/views/layout/head.jsp" />
+        
 	 	<link rel="stylesheet" type="text/css" href="<c:url value='/css/product.css' />">
 	 	<link rel="stylesheet" type="text/css" href="<c:url value='/css/index.css' />">
 	 	<link rel="stylesheet" type="text/css" href="<c:url value='/css/slideShow.css' />">
@@ -18,7 +20,14 @@
 	<body>
 		<div id="wrap">
 			<c:import url="/WEB-INF/views/layout/top.jsp" />
+			<%-- <div class="wrap-body">
+			<article class="main">
+			<div class="wrapper-li">
+			 <a href="<c:url value='/chat'/>"><img src="image/챗봇.jpg" alt="이미지" width=200 height=300></a> 
+			</div> --%>
+			<div>
 			<section>
+			
 	            	<article  id="slideShow"> <!-- 슬라이드 쇼 -->   
 	            		<!--  (1) prevNext 버튼 박스 -->
 	            		<div id="prevNextButtonBox">
@@ -78,6 +87,41 @@
 							</div> 
 						</div>
 					</article> 
+					 <article  id="content2"> <!-- 베스트 상품 -->    
+	                	<div id="productBox1" >
+	                		<div class="product_text1">
+		                		<ul>
+		                			<li>언제나 과일</li>
+		                        </ul>
+							</div>
+							<div id="products">
+							   <c:forEach var="fru" items="${bestList }">
+								    <div class="product-list">
+									     <div class="imgbox"> 
+										     <a href="<c:url value='/fruit/detailViewFruit/${fru.fruNo}' />" class="product">
+										         <img src="<c:url value='/images/${fru.fruImg }'/>">
+										     </a>
+									     </div>
+									     <div class="product-buttons">
+											 <a href="<c:url value='/fruit/detailViewFruit/${fru.fruNo}'/>"><button type="button" class="product-button"><i class="fa fa-search"></i></button></a>
+											 <button type="submit" class="product-button" onClick=btn()><i class="fa fa-heart-o"></i></button>
+											 <button type="submit" class="product-button"><i class="fa fa-shopping-basket"></i></button>
+										 </div>
+										 <div class="product-title1">
+											 <div class="product-brand">${fru.fruCompany }</div> 
+											 <div class=product-info>${fru.fruInfo }</div>
+										 </div>
+										 <div class="product-price"> 
+											 <span class=product-origin-price>
+											 <c:if test="${not empty fru.fruOriginPrice && 0 != fru.fruOriginPrice}" >${fru.fruOriginPrice }</c:if></span>
+											 <span class="product-price">${fru.fruPrice }원</span>
+										 </div>		               
+										 <div class="product-subinfo">${fru.fruSubInfo }</div>		
+									</div>
+								</c:forEach>
+							</div> 
+						</div>
+					</article> 
 					<article id="button"><!-- 버튼박스 -->
 				        <div id="buttonBox">
 				             	<button id="btn" align="left">오늘의 과일은??</button>
@@ -87,7 +131,9 @@
 				       </div>
 		        	</article>
 	    	</section>
-	    	
+	    	</div>
+	    	</article>
+	    	</div>
 	        <!--  bottom -->         
 	        <c:import url="/WEB-INF/views/layout/bottom.jsp" />
 	    </div>
