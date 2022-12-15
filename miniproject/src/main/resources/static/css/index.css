@@ -1,4 +1,6 @@
 @charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap');
+
 
 /* index.css */
 
@@ -30,8 +32,29 @@
 }
 
 
+.wrap-body{
+	
+	align-items:left;
+	display:flex;
+	display-decoration:column;
+	
+}
+.wrapper-li{
+	display:inline-block;
+}
 
+.main{
+  display:flex;	
+}
 
+.product_text1 ul li{
+	text-align: left;
+	font-weight:bolder;
+	color :orange;
+	font-size: 60px;
+	font-family:'Gamja Flower', cursive;
+
+}
 
 
 
