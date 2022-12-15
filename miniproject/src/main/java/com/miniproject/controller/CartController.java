@@ -9,6 +9,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -46,6 +47,22 @@ public class CartController {
 		// 장바구니 목록 출력 요청 포워딩
 		return "redirect:/fruit/cartList";
 	}
+
+ 	@RequestMapping("/fruit/insertCart/{fruNo}")
+ 	public String insertCartClick(@PathVariable String fruNo, CartVO vo, HttpSession session) {
+
+		String memId = (String)session.getAttribute("sid");
+		vo.setMemId(memId); // vo의 memId 값 설정
+		
+		vo.setFruNo(fruNo);
+		vo.setCartQty(1);
+		
+		service.insertCart(vo);
+ 		
+ 		
+		// 장바구니 목록 출력 요청 포워딩
+		return "redirect:/fruit/cartList";
+ 	}
 	
 	// 장바구니 목록 출력 : 현재 사용자의 장바구니에 있는 모든 상품 출력
 	@RequestMapping("/fruit/cartList")

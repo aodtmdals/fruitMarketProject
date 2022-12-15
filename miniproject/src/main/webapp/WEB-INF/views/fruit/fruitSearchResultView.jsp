@@ -28,7 +28,9 @@
 									     <div class="product-buttons">
 											 <a href="<c:url value='/fruit/detailViewFruit/${fru.fruNo}'/>"><button type="button" class="product-button"><i class="fa fa-search"></i></button></a>
 											 <button type="submit" class="product-button" onClick=btn()><i class="fa fa-heart-o"></i></button>
-											 <button type="submit" class="product-button"><i class="fa fa-shopping-basket"></i></button>
+											<form class="cartInsert" id="cartDB" method="post" action="<c:url value='/fruit/insertCart/${fru.fruNo}'/>">
+												<button id='Btns_td' type="submit" class="product-button"><i class="fa fa-shopping-basket"></i></button>
+											</form>
 										 </div>
 										 <div class="product-title">
 											 <div class="product-brand">${fru.fruCompany }</div> 
