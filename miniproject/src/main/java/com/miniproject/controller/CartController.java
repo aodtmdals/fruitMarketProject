@@ -105,7 +105,7 @@ public class CartController {
 	service.deleteAllCart(memId);
 	
 
-	return "/index";
+	return "redirect:/";
 	}
 	
 	// 주문서 작성
