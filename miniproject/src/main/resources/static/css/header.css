@@ -20,6 +20,12 @@ a:hover{
     cursor: pointer;
 }
 
+header{
+	background-color:white;
+	position: sticky; left: 0; top: 0; width: 100%;
+  	z-index: 10;
+}
+
 .nev-menu,
 .header-menu{
     display: flex;
@@ -81,16 +87,6 @@ button.header-item{
 }
 
 
-.dropdown-item{
-    padding: 10px;
-    font-size: small;
-}
-
-.dropdown-item:hover{
-    background-color: rgba(0,0,0,0.1);
-    cursor: pointer;
-}
-
 #subMenuItem1 {
     position:absolute;
     padding: 10px 0px;
@@ -109,4 +105,17 @@ button.header-item{
 /*드롭다운 메뉴 숨기는 css*/
 .hidden{
     display: none;
+}
+#upBtnBox{
+	position: fixed;
+	bottom:5%;
+	left:10%;
+}
+#upBtn{
+	width:45px;
+	height:45px;
+	color:white;
+	background-color: #77af9c;
+	border-radius:50%;
+	border:none;
 }

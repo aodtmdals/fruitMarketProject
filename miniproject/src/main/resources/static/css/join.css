@@ -1,12 +1,9 @@
-#newMemberForm{
-	
-	border-bottom : 1px solid #c0c0c0;
-	
-}
+@import url('https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap');
+
 
 table td {
 		width:150px;
-		height:50px;
+		height:60px;
 		padding-right: 10px;
 		color: #666;
 		font-weight : normal;
@@ -15,39 +12,75 @@ table td {
 		vertical-align:middle;
 	}
 
-
+#joinTable{
+	padding: 80px;
+	background-color: whitesmoke;
+	width: 800px;
+}
+#joinTitle{
+}
 
 .input{
-	width:200px;
-  height: 20px;
+	width:90%;
+  	height: 20px;
     padding: 4px 10px;
     border: 1px solid #dcdcdc;
+    box-shadow: 0px 0px 0px 0.2px #000000;
+    border-radius: 5px;
     background: #fff;
     color: #666;
     font-size: 12px;
 }
 
+.input:focus{
+    outline-color: #77af9c;
+    outline-width: 1px;
+    transition: outline 0.3s;
+}
+
+.inputHP{
+    border: 1px solid #dcdcdc;
+    padding: 4px 10px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 0px 0.2px #000000;
+	width:22.3%;
+  	height: 20px;
+}
+.inputHP:focus{
+    outline-color: #77af9c;
+    outline-width: 1px;
+    transition: outline 0.3s;
+}
+
+.joinFormBtn{
+	float:unset;
+  	height: 50px;
+	width:90%;
+	display:block;
+    border: none;
+	margin:0px;
+    border-radius: 5px;
+}
+
+.joinFormBtn:hover{
+	opacity:60%;
+}
+
+.success{	
+    background-color: #77af9c;
+    color: white;
+}
+
+.cancle{
+    border: 2px solid black;
+    line-height: 50px;
+}
+
 .join-buttons{
   text-align: center;
 }
-  
- #hp1{
- width:45px;
- height:20px;
- }
- 
- #hp2{
- width:55px;
- height:20px;
- }
- #hp3{
- width:55px;
- height:20px;
- }
- #birth{
-  width:55px;
- height:20px;
- }
+
+
  
 select{
 	 width:55px;

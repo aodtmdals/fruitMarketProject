@@ -37,3 +37,9 @@
 				</div>
             </div>
         </header>
+        
+       <div id="upBtnBox">
+       		<a href="#">
+       			<button id="upBtn"><i class="fa fa-chevron-up"></i></button>
+       		</a>
+       </div>

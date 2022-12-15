@@ -21,9 +21,8 @@
                 <div class="chat-menu-bar">
                     <div class="main-items">
                         <nav>
-                            <a class="chat-menu" title="홈으로"><i class="fa fa-home"></i></a>
-                            <a class="chat-menu" title="전체 상품페이지로"><i class="fa fa-shopping-cart"></i></a>
-                            <a class="chat-menu" title="제철과일 상품페이지로"><i class="fa fa-dropbox"></i></a>
+                            <a class="chat-menu" title="홈으로" href="<c:url value='/' />"><i class="fa fa-home"></i></a>
+                            <a class="chat-menu" title="전체 상품페이지로" href="<c:url value='/fruit/fruitAllList' />"><i class="fa fa-shopping-cart"></i></a>
                         </nav>
                     </div>
                     <div class="etc-items">
