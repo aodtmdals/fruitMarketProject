@@ -26,7 +26,6 @@
   	align-items: center;
   	flex-wrap: wrap;
   	margin-top:30px;
-  	align-items:center;
     padding: 1% 5%;
  }
  
@@ -36,23 +35,30 @@
  }
  
  .product-list{
-  margin:15px 25px;
+  border: thick double #77af9c;
+  border-radius:10px;
+  padding: 20px;
+  margin:10px 5px;;
   color: #545454;
   text-decoration: none;
   text-align: center;
-  height:430px;
+  height:440px;
   width:225px;
 }
 
  .product img{
+	border-radius:10px;
       width:225px;
       height:225px;
       transition: all 0.2s linear;
+      margin:10px 0px;
  }
-
+.cartInsert{
+	display: inline;
+}
 
 .product img:hover{
-         transform: scale(1.4);    
+      transform: scale(1.1);;   
  } 
  .product-button{
   	height: 30px;
@@ -60,10 +66,11 @@
     background-color:white;
     border:1px solid #b2b2b2;
     color:gray;
-    
     margin:5px 5px;
  }
- 
+ .product-button:hover{
+	cursor: pointer;
+ }
 
 .product-brand{
 		color:black;

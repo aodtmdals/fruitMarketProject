@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.miniproject.dao.ICartDAO;
 import com.miniproject.model.CartVO;
+import com.miniproject.model.FruitVO;
 
 
 @Service
@@ -62,6 +63,12 @@ public class CartService implements ICartService {
 	public void deleteAllCart(String memId) {
 		dao.deleteAllCart(memId);
 		
+	}
+
+	@Override
+	public void insertCartClick(String fruNo) {
+		// TODO Auto-generated method stub
+		dao.insertCartClick(fruNo);
 	}
 
 	

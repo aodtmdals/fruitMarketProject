@@ -13,9 +13,9 @@
 	 	<link rel="stylesheet" type="text/css" href="<c:url value='/css/product.css' />">
 	 	<link rel="stylesheet" type="text/css" href="<c:url value='/css/index.css' />">
 	 	<link rel="stylesheet" type="text/css" href="<c:url value='/css/slideShow.css' />">
-	 	<link rel="stylesheet" type="text/css" href="<c:url value='/css/Best.css' />">
 	 	<link rel="stylesheet" type="text/css" href="<c:url value='/css/button.css' />">
       	<link rel="stylesheet" type="text/css" href="<c:url value='/css/NewFile.css' />">
+		<script src="<c:url value='/js/Product_Click.js'/>"></script>
 	</head>
 	<body>
 		<div id="wrap">
@@ -58,30 +58,32 @@
 		                        </ul>
 							</div>
 							<div id="products">
-							   <c:forEach var="fru" items="${bestList }">
-								    <div class="product-list">
-									     <div class="imgbox"> 
-										     <a href="<c:url value='/fruit/detailViewFruit/${fru.fruNo}' />" class="product">
-										         <img src="<c:url value='/images/${fru.fruImg }'/>">
-										     </a>
-									     </div>
-									     <div class="product-buttons">
-											 <a href="<c:url value='/fruit/detailViewFruit/${fru.fruNo}'/>"><button type="button" class="product-button"><i class="fa fa-search"></i></button></a>
-											 <button type="submit" class="product-button" onClick=btn()><i class="fa fa-heart-o"></i></button>
-											 <button type="submit" class="product-button"><i class="fa fa-shopping-basket"></i></button>
-										 </div>
-										 <div class="product-title">
-											 <div class="product-brand">${fru.fruCompany }</div> 
-											 <div class=product-info>${fru.fruInfo }</div>
-										 </div>
-										 <div class="product-price"> 
-											 <span class=product-origin-price>
-											 <c:if test="${not empty fru.fruOriginPrice && 0 != fru.fruOriginPrice}" >${fru.fruOriginPrice }</c:if></span>
-											 <span class="product-price">${fru.fruPrice }원</span>
-										 </div>		               
-										 <div class="product-subinfo">${fru.fruSubInfo }</div>		
-									</div>
-								</c:forEach>
+								   <c:forEach var="fru" items="${bestList }">
+									    <div class="product-list">
+										     <div class="imgbox"> 
+											     <a href="<c:url value='/fruit/detailViewFruit/${fru.fruNo}' />" class="product">
+											         <img src="<c:url value='/images/${fru.fruImg }'/>">
+											     </a>
+										     </div>
+											     <div class="product-buttons">
+													 <a href="<c:url value='/fruit/detailViewFruit/${fru.fruNo}'/>"><button type="button" class="product-button"><i class="fa fa-search"></i></button></a>
+													 <a class="productBtn" href="<c:url value='/'/>"><button type="submit" class="product-button" onClick=btn()><i class="fa fa-heart-o"></i></button></a>
+													<form class="cartInsert" id="cartDB" method="post" action="<c:url value='/fruit/insertCart/${fru.fruNo}'/>">
+													 	<button id='Btns_td' type="submit" class="product-button"><i class="fa fa-shopping-basket"></i></button>
+													</form>
+												 </div>
+											 <div class="product-title">
+												 <div class="product-brand">${fru.fruCompany }</div> 
+												 <div class=product-info>${fru.fruInfo }</div>
+											 </div>
+											 <div class="product-price"> 
+												 <span class=product-origin-price>
+												 <c:if test="${not empty fru.fruOriginPrice && 0 != fru.fruOriginPrice}" >${fru.fruOriginPrice }</c:if></span>
+												 <span class="product-price">${fru.fruPrice }원</span>
+											 </div>		               
+											 <div class="product-subinfo">${fru.fruSubInfo }</div>		
+										</div>
+									</c:forEach>
 							</div> 
 						</div>
 					</article> 

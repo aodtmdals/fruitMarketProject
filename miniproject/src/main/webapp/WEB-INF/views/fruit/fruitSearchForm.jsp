@@ -29,8 +29,6 @@
 		
 				<!-- 검색 결과 출력  -->
 				<div id="searchResultBox"></div>
-
-		  	<c:import url="/WEB-INF/views/layout/bottom"src/main/resources/static/image/logo.png".jsp" />
 		</div>
 	</body>
 	
