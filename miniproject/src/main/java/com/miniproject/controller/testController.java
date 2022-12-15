@@ -18,9 +18,11 @@ public class testController {
 	public String index(Model model) {
 		 ArrayList<FruitVO>fruList=service.listAllFruit();
 		 ArrayList<FruitVO> bestList=service.listBestFruit();
+		 ArrayList<FruitVO> alwaysList=service.listalwaysFruit();
 
 		 model.addAttribute("fruList",fruList);
 		 model.addAttribute("bestList",bestList);
+		 model.addAttribute("alwaysList",alwaysList);
 
 		return "index";
 	}

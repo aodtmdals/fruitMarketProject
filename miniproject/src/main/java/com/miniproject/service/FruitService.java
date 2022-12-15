@@ -68,4 +68,10 @@ public class FruitService implements IFruitService {
 		return dao.listBestFruit();
 	}
 
+	@Override
+	public ArrayList<FruitVO> listalwaysFruit() {
+		// TODO Auto-generated method stub
+		return dao.listalwaysFruit();
+	}
+
 }

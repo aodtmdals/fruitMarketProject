@@ -25,6 +25,12 @@
 	  	select * from fruit order by rand() limit 8;
 	  	 ]]> 
 	  	</select>
+	  	<select id="listalwaysFruit" resultMap="fruResult">
+	  	<![CDATA[
+	  		select * from fruit WHERE ctgId="4" order by rand() limit 4;
+	  	 ]]> 
+	  	</select>
+	  	
 	  	<select id="ctgListFruit" parameterType="string" resultMap="fruResult">
 	  		SELECT * FROM fruit WHERE ctgId=#{ctgId} ORDER BY fruNo
 	  	</select>

@@ -17,10 +17,10 @@
 			table { margin:0 auto; width: 600px;}
 		</style>
     <body>
+      		<c:import url="/WEB-INF/views/layout/top.jsp" />
 	   <!--  top -->     
 		<br><br><br>
 		<div id="wrap">
-      		<c:import url="/WEB-INF/views/layout/top.jsp" />
 	        	<br>
 		        <h1 align="center" id="joinTitle">회원 정보 입력</h1>
 		        <br>

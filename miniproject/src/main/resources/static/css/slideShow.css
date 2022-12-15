@@ -4,14 +4,13 @@
 
 #slideShow {
 	position :relative;
-	background-color:#fff;
 	height:420px;
 	line-height:420px;
 	
 }
 
 #slideShowBox{
-	width:1280px;
+	width:1200px;
 	height:500px;
 	text-align:center;
 	 overflow:hidden;   /*영역 벗어나면 숨김 */
@@ -35,7 +34,7 @@
 #prevButton{
 	position:absolute;
 	top:210px;
-	left:4%;
+	left:10%;
 	opacity:0.8;
 	cursor:pointer;
 	width:70px; 
@@ -45,7 +44,7 @@
 #nextButton{
 	position:absolute;
 	top:210px;
-	right:4%;
+	right:10%;
 	opacity:0.8;
 	cursor:pointer;
 	width:70px; 

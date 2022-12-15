@@ -16,9 +16,14 @@
 		<script src="<c:url value='/js/Product_Click.js'/>"></script>
 	</head>
 	<body>
-		<div id="wrap">
 			<c:import url="/WEB-INF/views/layout/top.jsp" />
-			<section>
+			<div id="left-banner">
+				<div class="wrapper-li">
+					<a href="<c:url value='/chat'/>"><img src="image/챗봇.jpg" alt="이미지" width=200 height=300></a> 
+				</div>
+			</div>
+		<div id="wrap">
+				<section id="main">
 	            	<article  id="slideShow"> <!-- 슬라이드 쇼 -->   
 	            		<!--  (1) prevNext 버튼 박스 -->
 	            		<div id="prevNextButtonBox">
@@ -48,7 +53,7 @@
 		                			<li>Best 상품 정보</li>
 		                        </ul>
 							</div>
-							<div id="products">
+							<div id="products" class="index">
 								   <c:forEach var="fru" items="${bestList }">
 									    <div class="product-list">
 										     <div class="imgbox"> 
@@ -78,6 +83,41 @@
 							</div> 
 						</div>
 					</article> 
+					<article  id="content2"> <!-- 베스트 상품 -->    
+	                	<div id="productBox1" >
+	                		<div class="product_text1">
+		                		<ul>
+		                			<li>겨울 과일</li>
+		                        </ul>
+							</div>
+							<div id="products" class="index">
+							   <c:forEach var="fru" items="${alwaysList }">
+								    <div class="product-list">
+									     <div class="imgbox"> 
+										     <a href="<c:url value='/fruit/detailViewFruit/${fru.fruNo}' />" class="product">
+										         <img src="<c:url value='/images/${fru.fruImg }'/>">
+										     </a>
+									     </div>
+									     <div class="product-buttons">
+											 <a href="<c:url value='/fruit/detailViewFruit/${fru.fruNo}'/>"><button type="button" class="product-button"><i class="fa fa-search"></i></button></a>
+											 <button type="submit" class="product-button" onClick=btn()><i class="fa fa-heart-o"></i></button>
+											 <button type="submit" class="product-button"><i class="fa fa-shopping-basket"></i></button>
+										 </div>
+										 <div class="product-title1">
+											 <div class="product-brand">${fru.fruCompany }</div> 
+											 <div class=product-info>${fru.fruInfo }</div>
+										 </div>
+										 <div class="product-price"> 
+											 <span class=product-origin-price>
+											 <c:if test="${not empty fru.fruOriginPrice && 0 != fru.fruOriginPrice}" >${fru.fruOriginPrice }</c:if></span>
+											 <span class="product-price">${fru.fruPrice }원</span>
+										 </div>		               
+										 <div class="product-subinfo">${fru.fruSubInfo }</div>		
+									</div>
+								</c:forEach>
+							</div> 
+						</div>
+					</article> 
 					<article id="button"><!-- 버튼박스 -->
 				        <div id="buttonBox">
 				             	<button id="btn" align="left">오늘의 과일은??</button>
@@ -86,8 +126,7 @@
 						     </div>
 				       </div>
 		        	</article>
-	    	</section>
-	    	
+	    		</section>
 	        <!--  bottom -->         
 	        <c:import url="/WEB-INF/views/layout/bottom.jsp" />
 	    </div>

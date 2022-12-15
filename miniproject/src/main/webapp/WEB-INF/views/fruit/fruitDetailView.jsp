@@ -40,9 +40,9 @@
 		</script>	
 	</head>
     <body>
-      <div id="wrap">
         	<!--  top -->         
         	<c:import url="/WEB-INF/views/layout/top.jsp" />
+      <div id="wrap">
     <article id="content1">
 		<div id="prdtb">
 		<form id="cartDB" method="post" action="<c:url value='/fruit/insertCart'/>">
