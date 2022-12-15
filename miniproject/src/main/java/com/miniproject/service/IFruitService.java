@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import com.miniproject.model.FruitVO;
+import com.miniproject.model.Fruit_reviewVO;
 
 public interface IFruitService {
 	public ArrayList<FruitVO>ctgListFruit(String ctgId);
@@ -16,6 +17,11 @@ public interface IFruitService {
 	public String fruNoCheck(String fruNo);
 	public ArrayList<FruitVO>FruitSearch(HashMap<String,Object>map);//상품검색
 	public ArrayList<FruitVO> listalwaysFruit(); //언제나 상품
+	public ArrayList<FruitVO> listrecomFruit(); //추천과일
+	public ArrayList<FruitVO> fruitNameList(); //이름순과일
+	public ArrayList<FruitVO> fruitNewestList(); //최신순과일
 
+	public void insertReview(Fruit_reviewVO rew); // 리뷰 등록
+	public ArrayList<Fruit_reviewVO> reviewListAll(); // 리뷰 보이기
 
 }

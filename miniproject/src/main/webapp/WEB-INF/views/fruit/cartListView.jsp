@@ -11,8 +11,8 @@
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/SpBasket.css' />">
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/menu.css' />">
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/index.css' />">
-		<script src="<c:url value='/js/header.js' />"></script>
-		<c:import url="/WEB-INF/views/layout/top.jsp" />
+		
+		
 		<script src="<c:url value='/js/cartListView.js' />"></script>
 			<script type="text/javascript">
 			 $(document).ready(function(){
@@ -66,10 +66,13 @@
 		</script>	
 	</head>
 	<body>
-		<div id="wrap">
+		<c:import url="/WEB-INF/views/layout/top.jsp" />
+	<div id="sp">
+		
 			   <div class ="SpBasket">
+			   
 				<h2>장바구니</h2>
-				
+				<form method="post" action="<c:url value='/product/orderForm'/>">
 				<table class="list">
 				<thead id="thead">
 					<tr>
@@ -85,16 +88,16 @@
 				<tbody id="tbody">
 				<c:forEach var="fru" items="${cartList}">
 					 <tr>
-			               <td><img  src="<c:url value='/images/${fru.fruImg}'/>" width="100" height="70">${fru.fruInfo }</td>
+			               <td><img  src="<c:url value='/images/${fru.fruImg}'/>" width="140" height="100" id="fruimg">${fru.fruInfo }</td>
 			               <td>${fru.fruNo}</td>
 			               <td align="right"><span class="prdPrice"><fmt:formatNumber  value="${fru.fruPrice}" pattern="#,###" /></span> 원
 			                <input type="hidden" id="fruPrice"  value="${fru.fruPrice}">
 			               </td>
 			               
 			               <td>
-			               <input type="button" value=" - " class="btnM" >
+			               <input type="button" value=" - " class="btnM btnBorder" >
 							<input type="text" class="cartQty" name="cartQty" value="${fru.cartQty}"  size="1" readonly>
-							<input type="button" value=" + "  class="btnP" >
+							<input type="button" value=" + "  class="btnP btnBorder" >
 			               
 			               	   <input type="hidden" name="cartNo" value="${fru.cartNo}"> 
 			               	   <input type="hidden" name="memId" value="${fru.memId}">
@@ -138,14 +141,19 @@
 							<div id ="msg1"><img src="/image/Exclamation.png" id="Exclamation"> 안내사항</div><br>
 							<div>- 상품 쿠폰 및 적립금 사용은 [주문서 작성/결제]에서 적용됩니다.</div>
 							<div>- 장바구니는 회원에 한해 7일(168시간)동안 보관됩니다. 더 오래 보관 하시려면 관심상품에 담아주세요</div>
-							<a href="<c:url value='/구매링크' />" title="Button border blue/green" class="button btnBorder btnBlueGreen" type="submit">구매하기</a>
+							<input title="Button border blue/green" class="button btnBorder btnBlueGreen" type="submit" value="구매하기">
+							
 						</div>
 					</div>
-			  </div>
-			
+					</form>
+					</div>
+					
+					
+			</div>
 			<c:import url="/WEB-INF/views/layout/bottom.jsp" />
 			<script src="<c:url value='/js/index.js' />"></script>
 			<script src="<c:url value='/js/subMenu.js' />"></script>
-		</div>
+	
+		
 	</body>
 </html>

@@ -39,10 +39,6 @@
 	display-decoration:column;
 	
 }
-.wrapper-li{
-	display:inline-block;
-}
-
 .main{
   display:flex;	
 }
@@ -88,4 +84,12 @@
 #left-banner{
 	margin-left:130px;
 }
+#right-banner{
+	position:absolute;
+	top:19.3%;
+	right:17.5%;
+}
 
+.banner-img{
+	margin-bottom:40px;
+}

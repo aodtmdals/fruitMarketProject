@@ -7,3 +7,4 @@
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/footer.css' />">			
 		<script src="<c:url value='/js/header.js' />"></script>
 		<script src="https://kit.fontawesome.com/bb34e32cb3.js" crossorigin="anonymous"></script>
+		<c:import url="/WEB-INF/views/layout/snow.jsp" />

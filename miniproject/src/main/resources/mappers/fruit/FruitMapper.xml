@@ -31,6 +31,23 @@
 	  	 ]]> 
 	  	</select>
 	  	
+	  	<select id="listrecomFruit" parameterType="string" resultMap="fruResult">
+	  	<![CDATA[
+	  	select * from fruit order by rand();
+	  	 ]]> 
+	  	</select>
+	  	
+	  	<select id="fruitNameList" parameterType="string" resultMap="fruResult">
+	  	<![CDATA[
+	  	select * from fruit order by fruInfo ASC;
+	  	 ]]> 
+	  	</select>
+	  	<select id="fruitNewestList" parameterType="string" resultMap="fruResult">
+	  	<![CDATA[
+	  	select * from fruit order by fruNo DESC;
+	  	 ]]> 
+	  	</select>
+	  	
 	  	<select id="ctgListFruit" parameterType="string" resultMap="fruResult">
 	  		SELECT * FROM fruit WHERE ctgId=#{ctgId} ORDER BY fruNo
 	  	</select>

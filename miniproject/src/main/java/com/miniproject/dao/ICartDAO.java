@@ -4,7 +4,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import com.miniproject.model.CartVO;
-import com.miniproject.model.FruitVO;
+import com.miniproject.model.MemberVO;
+import com.miniproject.model.OrderInfoVO;
 
 
 
@@ -18,14 +19,17 @@ public interface ICartDAO {
 	public void deleteCart(String cartNo); // 장바구니 삭제
 	
 	public void deleteAllCart(String memId);
+	
+
+	
 	// 주문 처리 작업에 필요한 메소드
-	
-	public void updateCart(CartVO vo);
-	
-	// 주문 완료 처리 : 주문 내역 저장
-	
-	public void insertOrderFruit(HashMap<String, Object> map); // 주문 상품 내용 저장
-	public void deleteCartAfterOrder(String memId);// 주문 후 장바구니 내용 비우기(삭제)
+		public MemberVO getMemberInfo(String memId); // 주문서에 출력할 회원 정보 알아오기
+		public void updateCart(CartVO vo);
+		
+		// 주문 완료 처리 : 주문 내역 저장
+		public void insertOrderInfo(OrderInfoVO ordInfoVo); // 주문 정보 저장
+		public void insertOrderFruit(HashMap<String, Object> map); // 주문 상품 내용 저장
+		public void deleteCartAfterOrder(String memId);// 주문 후 장바구니 내용 비우기(삭제)
 }
 
 

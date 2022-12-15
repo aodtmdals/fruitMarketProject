@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.miniproject.dao.IFruitDAO;
 import com.miniproject.model.FruitVO;
+import com.miniproject.model.Fruit_reviewVO;
 
 @Service
 public class FruitService implements IFruitService {
@@ -74,4 +75,33 @@ public class FruitService implements IFruitService {
 		return dao.listalwaysFruit();
 	}
 
+	@Override
+	public ArrayList<FruitVO> listrecomFruit() {
+		// TODO Auto-generated method stub
+		return dao.listrecomFruit();
+	}
+
+	@Override
+	public ArrayList<FruitVO> fruitNameList() {
+		// TODO Auto-generated method stub
+		return dao.fruitNameList();
+	}
+
+	@Override
+	public ArrayList<FruitVO> fruitNewestList() {
+		// TODO Auto-generated method stub
+		return dao.fruitNewestList();
+	}
+
+	@Override
+	public void insertReview(Fruit_reviewVO rew) {
+		 dao.insertReview(rew);
+		
+	}
+
+	@Override
+	public ArrayList<Fruit_reviewVO> reviewListAll() {
+		return dao.reviewListAll();
+		
+	}
 }

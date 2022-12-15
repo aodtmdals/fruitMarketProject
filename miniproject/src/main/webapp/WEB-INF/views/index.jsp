@@ -19,7 +19,13 @@
 			<c:import url="/WEB-INF/views/layout/top.jsp" />
 			<div id="left-banner">
 				<div class="wrapper-li">
-					<a href="<c:url value='/chat'/>"><img src="image/챗봇.jpg" alt="이미지" width=200 height=300></a> 
+					<div class="banner-img">
+						<a href="<c:url value='/chat'/>"><img src="image/챗봇.jpg" alt="이미지" width="250" height="400"></a>
+					</div>
+					<div class="banner-img">
+						<a href="<c:url value='/fruit/detailViewFruit/${1027}'/>">
+						<img src="image/경북사과.jpg" alt="이미지" class="wrapperImg" width="250" height="400"></a>
+					</div>
 				</div>
 			</div>
 		<div id="wrap">
@@ -36,11 +42,17 @@
 	            				<img src="<c:url value='/image/딸기.png'/>" class="slideImage">
 	            				<img src="<c:url value='/image/사과.png'/>" class="slideImage">
 	            				<img src="<c:url value='/image/참외1.png'/>" class="slideImage">
-	            				
+	            				<img src="<c:url value='/image/슬라이드1.PNG'/>" class="slideImage">
+	            				<img src="<c:url value='/image/슬라이드2.PNG'/>" class="slideImage">
+	            				<img src="<c:url value='/image/슬라이드3.PNG'/>" class="slideImage">
 	            			</div> <!-- slidePanel 끝 --> 
-	            		</div><!-- slideShowBox 끝 -->
+	            		</div>
+	            		<!-- slideShowBox 끝 -->
 	            		<!-- (3) 컨트롤 버튼 -->
 	            		<div id="controlButtonBox">
+	            			<img src="<c:url value='/image/controlButton1.png'/>" class="controlButton">
+	            			<img src="<c:url value='/image/controlButton1.png'/>" class="controlButton">
+	            			<img src="<c:url value='/image/controlButton1.png'/>" class="controlButton">
 	            			<img src="<c:url value='/image/controlButton1.png'/>" class="controlButton">
 	            			<img src="<c:url value='/image/controlButton1.png'/>" class="controlButton">
 	            			<img src="<c:url value='/image/controlButton1.png'/>" class="controlButton">
@@ -128,8 +140,15 @@
 		        	</article>
 	    		</section>
 	        <!--  bottom -->         
+	    	</div>
+	    	<div id="right-banner">
+				<div class="wrapper-li">
+					<div class="banner-img">
+						<a href="<c:url value='/'/>" onclick=""><img src="image/크리스마스.jpg" alt="이미지" class="wrapperImg" width="250" height="500"></a>
+					</div>
+				</div>
+			</div>
 	        <c:import url="/WEB-INF/views/layout/bottom.jsp" />
-	    </div>
     	<script src="<c:url value='/js/login.js' />"></script>
     	<script src="<c:url value='/js/slideShow.js' />"></script>
     	<script src="<c:url value='/js/button.js' />"></script>

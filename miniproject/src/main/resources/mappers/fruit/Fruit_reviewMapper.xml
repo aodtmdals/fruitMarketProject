@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="com.miniproject.dao.IFruitDAO">
+  
+   	<!-- 장바구니에 동일 상품이 존재하지 않으면 장바구니에 추가 -->
+  	<!-- cartNo는 자동 증가하므로 입력하지 않아도 됨  -->
+  <insert id="insertReview" parameterType="com.miniproject.model.Fruit_reviewVO">
+  		INSERT INTO fruit_review VALUES (#{memId}, #{review})
+  	</insert>
+  
+  <select id="reviewListAll" resultType="com.miniproject.model.Fruit_reviewVO">
+  		SELECT * FROM fruit_review
+  </select>
+  
+ </mapper>

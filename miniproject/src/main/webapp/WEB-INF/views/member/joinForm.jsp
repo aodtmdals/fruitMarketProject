@@ -61,7 +61,7 @@
 	      		</form>	
 		        <br>
 		        <br>
-      	 	<c:import url="/WEB-INF/views/layout/bottom.jsp" />
       	 </div>    
+      	 	<c:import url="/WEB-INF/views/layout/bottom.jsp" />
     </body>
 </html>

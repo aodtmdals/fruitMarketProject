@@ -18,14 +18,14 @@
 
 #slidePanel {
 	position:relative;
-	width:6400px;
+	width:7680px;
 	height:500px;
 }
 
 .slideImage{
 	float:left;
 	width:1280px;
-	height:480px;
+	height:500px;
 }
 
 /* prev / next 버튼 */
@@ -55,7 +55,7 @@
 #nextButton:hover { opacity:1;}
 
 /* 컨트롤 버튼 */
-#controlButtonBox { margin:0 auto; width:160px;}
+#controlButtonBox { margin:0 auto; width:200px;}
 #controlButtonBox img {float:left; margin:10px; width:10px; height:10px;}
 
  
