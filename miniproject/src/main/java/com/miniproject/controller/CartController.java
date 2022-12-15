@@ -105,7 +105,7 @@ public class CartController {
 	service.deleteAllCart(memId);
 	
 
-	return "redirect:/fruit/insertCart";
+	return "/index";
 	}
 	
 	// 주문서 작성
@@ -179,9 +179,10 @@ public class CartController {
 		ordInfoVo.setOrdNo(ordNo);
 		
 		// (3) 주문 정보 저장
-		service.insertOrder(ordInfoVo);
+		service.insertOrderInfo(ordInfoVo);
 		
-		return "/index";
+		
+		return "redirect:/";
 	}
 	
 	
