@@ -18,41 +18,49 @@
 		</style>
     <body>
 	   <!--  top -->     
-	<br><br><br>
+		<br><br><br>
 		<div id="wrap">
       		<c:import url="/WEB-INF/views/layout/top.jsp" />
-	        <h1 align="center">회원 정보 입력</h1>
-	        <h4 align="center">기본 정보 입력</h4>
-	        <hr>
-	        <form id="newMemberForm" name="newMemberForm" method="post" action="<c:url value='/member/insert'/>">
-	          <table>
-	            <tr><td> 성명</td><td><input class="input" type="text" id="memName" name="memName" ></td></tr>
-	            <tr><td> ID</td><td colspan="2"><input class="input" type="text" id="memId" name="memId"></td></tr>
-	            <tr><td>비밀번호</td><td colspan="2"><input class="input" type="password" id="memPw" name="memPw"></td></tr>
-	            <tr><td>휴대폰 번호</td><td colspan="2"	><input type="text" id="memHp1" name="memHp1" size="3"> 
-	                    - <input type="text" id="memHp2" name="memHp2" size="4">
-	                    - <input type="text" id="memHp3" name="memHp3" size="4"></td></tr> 
-	                    
-		        <tr><td>이메일</td><td><input type="email" id="memEmail" name="memEmail"></td></tr>    
-	            	 
-								<tr><td rowspan="3">주소</td>
-								<td><input type="text" id="memZipcode" name="memZipcode" size="10" readonly></td>
-								<td><input type="button" id="searchZipBtn" name="searchZipBtn" value="우편번호 찾기"></td></tr>
-							<tr>
-								<td><input type="text" id="memAddress1" name="memAddress1" placeholder="주소 입력" size="40" readonly></td>
-							</tr>
-							<tr>
-								<td><input type="text" id="memAddress2" name="memAddress2" placeholder="상세 주소 입력" size="40"></td>
-							</tr>
-										
-	             <tr>
-	                <td colspan="3" class="join-buttons" align="center">
-	                    <br><input type="submit" value="완료">
-	                    <input type="reset" value="취소">
-	                </td>
-	            </tr>             
-	          </table>
-      		</form>	
+	        	<br>
+		        <h1 align="center" id="joinTitle">회원 정보 입력</h1>
+		        <br>
+		        <br>
+		        <br>
+		        <form id="newMemberForm" name="newMemberForm" method="post" action="<c:url value='/member/insert'/>">
+		          <table id="joinTable">
+		            <tr ><td> 성명</td><td colspan="2"><input class="input" type="text" id="memName" name="memName"></td></tr>
+		            <tr><td> ID</td><td colspan="2"><input class="input" type="text" id="memId" name="memId"></td></tr>
+		            <tr><td>비밀번호</td><td colspan="2"><input class="input" type="password" id="memPw" name="memPw"></td></tr>
+		            <tr><td>휴대폰 번호</td><td colspan="2"	><input class="inputHP" type="text" id="memHp1" name="memHp1" size="3" class="joinInput"> 
+		                    - <input class="inputHP" type="text" id="memHp2" name="memHp2" size="4" class="joinInput">
+		                    - <input class="inputHP" type="text" id="memHp3" name="memHp3" size="4" class="joinInput"></td></tr> 
+		                    
+			        <tr><td>이메일</td><td colspan="2"><input class="input" type="email" id="memEmail" name="memEmail" class="joinInput"></td></tr>    
+		            	 
+					<tr><td rowspan="3">주소</td>
+					<td><input class="input" type="text" id="memZipcode" name="memZipcode" size="10" readonly></td>
+					<td><input class="button success joinFormBtn" type="button" id="searchZipBtn" name="searchZipBtn" value="우편번호 찾기" class="joinBtn"></td></tr>
+					<tr>
+						<td colspan="2"><input class="input" type="text" id="memAddress1" name="memAddress1" placeholder="주소 입력" size="40" readonly></td>
+					</tr>
+					<tr>
+						<td colspan="2"><input class="input" type="text" id="memAddress2" name="memAddress2" placeholder="상세 주소 입력" size="40"></td>
+					</tr>	
+					<tr> 
+						<td></td>
+					</tr>			
+		             <tr>
+		                <td colspan="2" class="join-buttons" align="center">
+		                    <input class="button success joinFormBtn" type="submit" value="완료">
+		                </td>
+		                <td colspan="2">
+		                    <input class="button cancle joinFormBtn" type="reset" value="취소" >
+		                </td>
+		            </tr>             
+		          </table>
+	      		</form>	
+		        <br>
+		        <br>
       	 	<c:import url="/WEB-INF/views/layout/bottom.jsp" />
       	 </div>    
     </body>
