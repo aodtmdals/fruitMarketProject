@@ -1,7 +1,10 @@
 
+const confirmCheck = document.getElementById("not-confirm-message");
+const chatList = document.querySelectorAll(".chat-list"); 
 const chatTitle = document.querySelectorAll("#chat-title");
 const dropdown = document.getElementById("more-dropdown");
 const dropdownItem = document.querySelectorAll(".dropdown-item");
+const moreBtn = document.getElementById("more-btn"); 
 
 let clickCount =  0;
 let headerClickCount = 0; 

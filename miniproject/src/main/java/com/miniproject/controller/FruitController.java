@@ -3,6 +3,8 @@ package com.miniproject.controller;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.miniproject.model.FruitVO;
+import com.miniproject.model.Fruit_reviewVO;
 import com.miniproject.service.FruitService;
 
 
@@ -37,10 +40,13 @@ public class FruitController {
 	     
 	  // 상품 상세 조회
 	 	@RequestMapping("/fruit/detailViewFruit/{fruNo}")
-	 	public String detailViewFruit(@PathVariable String fruNo, Model model) {
+	 	public String detailViewFruit(@PathVariable String fruNo, Fruit_reviewVO vo, Model model) {
 	 		// 상품번호 전달하고 해당 상품 상세 정보 받아오기 (1개 상품에 관한 정보)
 	 		FruitVO fru = service.detailViewFruit(fruNo);
-	 		model.addAttribute("fru", fru);		
+	 		model.addAttribute("fru", fru);
+
+			ArrayList<Fruit_reviewVO>rew=service.reviewListAll();
+			model.addAttribute("rew",rew);
 	 		return "fruit/fruitDetailView";
 	 	}
 	 	@RequestMapping("/fruit/fruitSearchForm")
@@ -55,6 +61,48 @@ public class FruitController {
 			   return"fruit/fruitSearchResultView";
 			   
 		   }
+
+		   @RequestMapping("/fruit/fruitrecomList")
+			 public String fruitrecomList(Model model) {
+				 ArrayList<FruitVO>fruList=service.listrecomFruit();
+				 model.addAttribute("fruList",fruList);
+				 return "fruit/fruitCtgListView";
+			 }
+		   
+		   @RequestMapping("/fruit/fruitNameList")
+			 public String fruitNameList(Model model) {
+				 ArrayList<FruitVO>fruList=service.fruitNameList();
+				 model.addAttribute("fruList",fruList);
+				 return "fruit/fruitCtgListView";
+			 }
+		   
+		   
+		   @RequestMapping("/fruit/fruitNewestList")
+			 public String fruitNewestList(Model model) {
+				 ArrayList<FruitVO>fruList=service.fruitNewestList();
+				 model.addAttribute("fruList",fruList);
+				 return "fruit/fruitCtgListView";
+			 }
+		   
+		   
+		   @RequestMapping("/fruit/insertReview") 
+		   public String insertReview(Fruit_reviewVO vo, HttpSession session, Model model) {
+			   
+			   String memId = (String)session.getAttribute("sid"); 
+			   vo.setMemId(memId);
+			   service.insertReview(vo);
+			   
+			   
+			   ArrayList<Fruit_reviewVO>rew=service.reviewListAll();
+			   model.addAttribute("rew",rew);
+			   
+			    return "/fruit/Review";
+		   }
+		 	@RequestMapping("/fruit/fruitPriceCompare")
+			   public String fruitPriceCompare() {
+				    return "/fruit/fruitPriceCompare";
+			   }
+		   
 
 }
 

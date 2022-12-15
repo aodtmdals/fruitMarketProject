@@ -15,8 +15,8 @@
 	</head>
 	<body>
 		<body>
-		<div id="wrap">
 		  <c:import url="/WEB-INF/views/layout/top.jsp" />
+		<div id="wrap">
 				<h3>상품 검색</h3>
 				<form id="fruSearchFrm">
 					<select id="type" name="type">

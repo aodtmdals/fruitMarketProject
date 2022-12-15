@@ -8,7 +8,7 @@
                     <ul>
                         <a class="header-item" href="<c:url value='/fruit/fruitAllList'/>"><li>전체상품</li></a>
                         <!-- 나중에 고치세요 -->
-                        <a class="header-item" href="<c:url value='/'/>"><li>가격비교</li></a>
+                        <a class="header-item" href="<c:url value='/fruit/fruitPriceCompare'/>"><li>가격비교</li></a>
 						<a class="header-item" href="<c:url value='/chat'/>"><li><i class="fa fa-commenting"></i>챗봇</li></a>
                     </ul>
                 </div>
@@ -31,7 +31,6 @@
 						${sessionScope.sid}님 
 						<a class="header-item" href="<c:url value='/fruit/cartList'/>"><li>장바구니</li></a>
 						<a class="header-item" href="<c:url value='/member/logout'/>"><li>로그아웃</li></a> 
-						<a class="header-item" href="<c:url value='/member/myPage'/>"><li>My Page</li></a>
 						<a href="<c:url value='/fruit/fruitSearchForm'/>"> <button type="submit" class=" header-item "><i class="fa fa-search"></i></button></a>
 					</c:if>	            	
 				</div>

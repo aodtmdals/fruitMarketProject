@@ -9,7 +9,8 @@ import org.springframework.stereotype.Service;
 
 import com.miniproject.dao.ICartDAO;
 import com.miniproject.model.CartVO;
-import com.miniproject.model.FruitVO;
+import com.miniproject.model.MemberVO;
+import com.miniproject.model.OrderInfoVO;
 
 
 @Service
@@ -62,6 +63,33 @@ public class CartService implements ICartService {
 	@Override
 	public void deleteAllCart(String memId) {
 		dao.deleteAllCart(memId);
+		
+	}
+
+	@Override
+	public MemberVO getMemberInfo(String memId) {
+		
+		return dao.getMemberInfo(memId);
+	}
+
+	@Override
+	public void insertOrder(OrderInfoVO ordInfoVo) {
+		// (1) 주문 정보 저장 (order_info 테이블)
+		dao.insertOrderInfo(ordInfoVo);
+		
+		// (2) 주문 상품 내용 저장 (order_product 테이블)
+		// cart 테이블에서 바로 order_product 테이블로 저장
+		// cart에서 가져오기 위해 memId 필요, 주문번호 필요
+		// mapper에게 주문번호, memId 2개 전달해야 함 : HashMap으로 보내야 함
+		// HashMap에 넣는 작업 필요
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		map.put("ordNo", ordInfoVo.getOrdNo());
+		map.put("memId", ordInfoVo.getMemId());
+		// mapper에게 전달해서 저장
+		dao.insertOrderFruit(map);
+		
+		// (3) 주문 완료 후 장바구니 삭제
+		dao.deleteCartAfterOrder(ordInfoVo.getMemId());
 		
 	}
 

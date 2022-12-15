@@ -12,7 +12,7 @@
 		movedIndex = index;
 		
 		// 슬라이드 이동
-		var moveLeft = -(index * 1200); // 왼쪽으로 이동 거리
+		var moveLeft = -(index * 1280); // 왼쪽으로 이동 거리
 		$('#slidePanel').animate({'left': moveLeft}, 'slow');
 	}
 	
@@ -26,7 +26,7 @@
 	
 	// next 버튼 클릭하면 뒤로 이동
 	$('#nextButton').on('click', function(){
-		if(movedIndex != 2)  // 마지막이 아니면
+		if(movedIndex != 5)  // 마지막이 아니면
 			movedIndex = movedIndex + 1; // 인덱스 값 + 1
 		
 		moveSlide(movedIndex); // 실제로 슬라이드 패널을 움직이는 함수 호출하면 계산된 인덱스값 전달

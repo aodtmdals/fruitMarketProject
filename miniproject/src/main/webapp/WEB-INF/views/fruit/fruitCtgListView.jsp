@@ -18,11 +18,11 @@
    <!--  top -->         
       <div class="head2">전체상품</div>
       <div class="head3">
-      	  <select id="selectoption">
+		<select id="selectBox" name="selectBox" onchange="if(this.value) location.href=(this.value);">
 	          <option>상품정렬</option>
-	          <option>추천순</option>
-	          <option>상품명순</option>
-	          <option>신상품순</option>
+	          <option value="recommend" id="recommend">추천순</option>
+	          <option value="name" id="name">상품명순</option>
+	          <option value="newest" id="newest">신상품순</option>
           </select> 
       </div>
 	  <div id="products">
@@ -53,7 +53,7 @@
 						</div>
 				</c:forEach>
 		</div> 
-		<c:import url="/WEB-INF/views/layout/bottom.jsp" />
 	</div>
+		<c:import url="/WEB-INF/views/layout/bottom.jsp" />
 </body>
 </html>

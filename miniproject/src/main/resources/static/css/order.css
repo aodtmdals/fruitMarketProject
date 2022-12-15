@@ -1,0 +1,111 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap');
+
+h1 { margin-top:20px; text-align: left; margin-left: 140px;}
+h4{ color:#b2b2b2; text-align: left; margin-left: 140px;}
+
+table { width:1000px; margin-top:20px; border-collapse: collapse; }
+
+table caption { font-size: 20px; font-weight: 600; margin-bottom: 10px;}	
+
+table tr { height:30px; }
+
+table th, td { border:solid gray 1px; padding:10px;  }
+
+table th { background-color: #77af9c; color: black; width: 100px;  font-size: 20px;}	
+
+table td { text-align: left; width: 300px; font-size: 18px;}	
+
+input, select { text-align:left; height: 20px; margin: 2px 0;}
+
+.order_list td { text-align: center; }
+
+
+#proname{
+	width: 45%;
+	
+}
+
+select{  
+    
+    height: 40px;
+    padding: 4px 6px;
+    border: 1px solid #dcdcdc;
+    background: #fff;
+    color: #666;
+   margin-right:130px;
+ }
+#ordRcvAddress{
+	  height: 40px;
+    padding: 4px;
+    border: 1px solid #dcdcdc;
+    background: #fff;
+    color: #666;
+   margin-right:25px;
+   font-size:17px;
+}
+
+
+#btnBorder{
+	background-color: #dcdcdc;
+	color: #000;
+	
+	transition: all 0.2s;
+	font-weight: 600;
+	font-size:15px;
+	box-shadow: 0px 0px 0px 0px #ffffff;
+	height: 25px;
+}
+
+#btnBorder:hover {
+	box-shadow: 0px 0px 0px 2px #000000;
+}
+
+.productinfo td{
+	text-align: center;
+	font-size: 30px;
+	font-family: 'Gamja Flower', cursive;
+}
+
+#info{
+	border-style:hidden;
+	text-align: right;
+}
+
+#tbody img{
+	width: 180px;
+	height: 120px;
+	
+}
+
+
+
+.button{
+	background-color: #fff;
+	color: #000;
+	border-radius: 5px;
+	transition: all 0.2s;
+	font-weight: 600;
+	font-size:20px;
+	text-align:center;
+	
+	float: right;
+	font-size: 35px;
+	margin-right: 140px;
+font-family: 'Gamja Flower', cursive;
+	width: 200px;
+	height: 100px;
+	
+	
+}
+.button.btnBorder {
+	box-shadow: 0px 0px 0px 0px #ffffff;
+
+}
+
+.button.btnBorder:hover {
+	box-shadow: 0px 0px 0px 2px #000000;
+	
+}
+
+

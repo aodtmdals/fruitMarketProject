@@ -1,8 +1,9 @@
 package com.miniproject.controller;
 
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-
+import java.util.Date;
 
 import javax.servlet.http.HttpSession;
 
@@ -17,6 +18,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.miniproject.model.CartVO;
 
 import com.miniproject.service.CartService;
+import com.miniproject.model.MemberVO;
+import com.miniproject.model.OrderInfoVO;
 
 
 
@@ -47,7 +50,7 @@ public class CartController {
 		// 장바구니 목록 출력 요청 포워딩
 		return "redirect:/fruit/cartList";
 	}
-
+	
  	@RequestMapping("/fruit/insertCart/{fruNo}")
  	public String insertCartClick(@PathVariable String fruNo, CartVO vo, HttpSession session) {
 
@@ -97,12 +100,88 @@ public class CartController {
 	
 	
 	@RequestMapping("/fruit/deleteAllCart")
-	public String delete(HttpSession session) {
+	public String deleteAllCart(HttpSession session) {
 	String memId= (String)session.getAttribute("sid");
 	service.deleteAllCart(memId);
 	
 
-	return "redirect:/fruit/cartList";
+	return "redirect:/fruit/insertCart";
+	}
+	
+	// 주문서 작성
+	@RequestMapping("/product/orderForm")
+	public String orderForm(@RequestParam String[] memId,
+											  @RequestParam int[] cartNo,
+											  @RequestParam int[] cartQty,
+											  Model model) {
+		
+		// (1) [주문하기] 버튼 누르면 변경된 주문수량을 적용하기 위해 먼저 update 수행
+		// Mapper에게 vo로 전달하기 위해 받아온 값으로 vo 값 설정
+		for(int i=0; i<cartNo.length; i++) {
+			CartVO vo = new CartVO();
+			vo.setCartNo(cartNo[i]);
+			vo.setCartQty(cartQty[i]);
+			service.updateCart(vo);
+		}
+		
+		//주문서에 출력할 정보 가져오기
+		// (2) 주문자 정보 가져오기 (주문자 정보를 알기 위해서는 memId 필요)
+		// memId 가져오는 방법
+		// (1) 위에서 한 것 처럼 session.getAttribute("sid")해서 가져와도 되고
+		// (2) 지금은 cartListView.jsp에서 요청하면서 보내온 memId[]를 사용
+		//        그런데 memId[]는 배열로 상품 개수와 동일하지만 memId는 모두 동일 (로그인한 현재 사용자 1명 것)
+		//        단 memId[]는 배열이므로 첨자 필요
+		MemberVO memVo = service.getMemberInfo(memId[0]);
+		// 전화번호 반환 값 : 010-1111-1111
+		//주문서에는 <input> 3개에 출력하기 위해서는 전화번호 split
+//		System.out.println("m : " + memId[0]);
+//		System.out.println("h : " + memVo.getMemHP());
+		String[] hp = (memVo.getMemHP()).split("-");
+		// 주문서에 주문자 정보 출력하기 위해 model에 저장
+		model.addAttribute("memVo", memVo);
+		model.addAttribute("hp1", hp[0]);
+		model.addAttribute("hp2", hp[1]);
+		model.addAttribute("hp3", hp[2]);		
+		
+		// (3) 장바구니 목록 가져오기
+		ArrayList<CartVO> cartList = service.cartList(memId[0]);
+		model.addAttribute("cartList", cartList);
+		
+		return "product/orderForm";
+	}
+	
+	// 주문 완료 처리
+	@RequestMapping("/product/orderComplete")
+	public String orderComplete(OrderInfoVO ordInfoVo,
+													@RequestParam("hp1") String hp1,
+													@RequestParam("hp2") String hp2,
+													@RequestParam("hp3") String hp3) {
+	
+		//(1) vo에 전화번호 값 저장
+		ordInfoVo.setOrdRcvPhone(hp1 + "-" + hp2 + "-" + hp3);
+		
+		// (2) 주문번호 생성 및 설정 
+		// 주문번호 생성 : 오늘날찌시분초_랜덤숫자4개
+		long timeNum = System.currentTimeMillis();
+		// 날짜 시간 포맷 : HH(24시간제)
+		SimpleDateFormat fmt = new SimpleDateFormat("yyyyMMddHHmmss");
+		String strTime = fmt.format(new Date(timeNum));
+		
+		// 랜덤 숫자 4개 생성
+		String rNum = "";
+		for(int i=1; i<=4; i++) {
+			rNum += (int)(Math.random() * 10);
+		}
+		
+		//주문번호
+		String ordNo = strTime + "_" + rNum;
+		// vo에 주문번호 저장
+		ordInfoVo.setOrdNo(ordNo);
+		
+		// (3) 주문 정보 저장
+		service.insertOrder(ordInfoVo);
+		
+		return "/index";
 	}
 	
 	

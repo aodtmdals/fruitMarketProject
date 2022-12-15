@@ -194,7 +194,7 @@
             </article>
         </div>
 		<script src="<c:url value='/js/chat.js' />"></script>
-		<c:import url="/WEB-INF/views/layout/bottom.jsp" />
     </div>
+		<c:import url="/WEB-INF/views/layout/bottom.jsp" />
 	</body>
 </html>
