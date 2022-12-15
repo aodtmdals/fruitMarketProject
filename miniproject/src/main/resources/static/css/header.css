@@ -30,7 +30,8 @@ header{
 .header-menu{
     display: flex;
     align-items: center;
-    margin:20px 80px;
+    margin:0px 80px;
+    margin-bottom:20px;
     padding-top: 20px;
 }
 
@@ -71,6 +72,7 @@ header{
     width: 400px;
     border:3px solid gray;
     padding:3px 10px;
+    border-radius:5px;
     
 }
 .input-search-word:focus{
@@ -84,6 +86,7 @@ button.header-item{
     color: white;
     border:0px;
     padding:13px;
+    border-radius:5px;
 }
 
 
@@ -110,6 +113,7 @@ button.header-item{
 	position: fixed;
 	bottom:5%;
 	left:10%;
+    z-index: 10;
 }
 #upBtn{
 	width:45px;
@@ -118,4 +122,11 @@ button.header-item{
 	background-color: #77af9c;
 	border-radius:50%;
 	border:none;
+}
+
+.shadow{
+  -webkit-box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 2px -10px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s;
 }
