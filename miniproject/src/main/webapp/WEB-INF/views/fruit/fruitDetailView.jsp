@@ -13,31 +13,6 @@
 		<script src="<c:url value='/js/Product_Click.js'/>"></script>
 		<script src="<c:url value='/js/index.js'/>"></script>
        	<c:import url="/WEB-INF/views/layout/head.jsp" />
-       	<script type="text/javascript">
-			var qty = 1;
-			
-			// 주문수량 변경하는 함수
-			function qtyChange(num) {
-				qty = qty + num;
-				if(qty < 1) qty = 1;
-				// 주문액 계산하는 함수 호출
-				calAmount();
-			}
-		
-			// 주문수량 변경될 때 주문액 계산해서 출력하는 함수
-			function calAmount() {
-				// 현재 주문수량과 주문 예정 금액 가져오기
-				var cartQty =  document.getElementById('cartQty');
-				var amount =  document.getElementById('amount');
-				
-				var total = qty * ${prd.prdPrice};
-				
-				// 결과 값 반영
-				cartQty.value = qty;
-				amount.innerHTML = total.toLocaleString(); // 천단위 구분
-			}
-		
-		</script>	
 	</head>
     <body>
         	<!--  top -->         
@@ -70,17 +45,16 @@
 									<option value="10">10</option></select>
 							</td>
 						</tr>
-						<tr><td>배송비</td><td>3,000</td></tr>
-						<tr><td colspan="2"><span id="amount"><fmt:formatNumber value="${fru.fruPrice}" pattern="#,###" /></span> 원</td></tr>
+						<tr><td></td><td><span id="amount"><fmt:formatNumber value="${fru.fruPrice}" pattern="#,###" /> 원</span></td></tr>
 					 <input type="hidden" id="fruPrice" value="${fru.fruPrice}"></input>
 					<tr><td colspan="2">
 					<c:if test="${empty sessionScope.sid }">
-						<button><a href="<c:url value='/member/loginForm'/>">로그인</a></button>
+						<a href="<c:url value='/member/loginForm'/>" class="myButton">로그인</a>
 					</c:if>
 					<!-- 로그인 한 경우에는 [장바구니] [주문하기] 버튼 출력  -->
 					<c:if test="${not empty sessionScope.sid }">
-					<input  id='Btns_td' type="submit" value="장바구니">
-					<button id="orderBtn" type='button'>주문하기</button>
+					<input id="cart" type="submit" value="장바구니">
+					<button id="deilivery" type='button'>주문하기</button>
 					</c:if></td></tr>
 				</thead>
 			</table>
@@ -89,11 +63,9 @@
 	</article>
 	<article id="content2">
 		<div id="tabMenu">
-			<ul id="tab">
-				<li class='tabtab'>상세 설명</li>
-				<li class='tabtab'>상품평</li>
-				<li class='tabtab'>상품 문의</li>
-			</ul>
+				<a class='tabtab'>상세 설명</a>
+				<a class='tabtab'>상품평</a>
+				<a class='tabtab'>상품 문의</a>
 		</div>
 	</article>
 	<article id="content3">
@@ -101,6 +73,8 @@
 		<div id="tabContent">
 			<div id='a1'><img src="<c:url value='/images/${fru.fruNo}-1.jpg'/>"></div>
 				<div id='a2'>
+				<form id="reviewDB" method="post" action="<c:url value='/fruit/insertReview'/>">
+				 <c:forEach var="rew" items="${rew }">
 					<table id='reviewtable1'>
 						<tr>
 							<th>이름</th><th>상품평</th>
@@ -117,18 +91,26 @@
 							<td>김**</td>
 							<td>진짜 고당도인거같아요! 너무 맛있어요ㅠㅠ</td>
 						</tr>
+						<tr>
+							<td>${rew.memId }</td>
+							<td>${rew.review }</td>
+						</tr>
 					</table>
+					</c:forEach>
 					<input type="text" placeholder="상품평 입력" id="prdreview1">
 					<button type="submit" id='reviewbtn1'>등록</button>
+					</form>
 				</div>
 				<div id='a3'>
-					<h4> 상품문의 </h4>
+				<br>
+					<h5> 상품문의 </h5>
+					<br>
 					<table id='reviewtable2'>
 						<tr>
-							<td>비밀댓글입니다.</td>
+							<td colspan="2">비밀댓글입니다.</td>
 						</tr>
 						<tr>
-							<td>비밀댓글입니다.</td>
+							<td colspan="2">비밀댓글입니다.</td>
 						</tr>
 						<tr>
 							<td>김**</td>

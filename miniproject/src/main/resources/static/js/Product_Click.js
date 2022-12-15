@@ -4,7 +4,7 @@
  
  $(document).ready(function() {
 	
-	$('#tab li').on('click', function() {
+	$('.tabtab').on('click', function() {
 
 		 var index = $(this).index();
 		 
