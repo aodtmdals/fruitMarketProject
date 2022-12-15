@@ -13,8 +13,8 @@
 		<script src="<c:url value='/js/header.js' />"></script>
 	</head>
 	<body>
-		<div id="wrap">
 			<c:import url="/WEB-INF/views/layout/top.jsp" />
+		<div id="wrap">
 			
 			   <div class ="SpBasket">
 				<h2>장바구니</h2>

@@ -12,7 +12,7 @@
 		movedIndex = index;
 		
 		// 슬라이드 이동
-		var moveLeft = -(index * 1280); // 왼쪽으로 이동 거리
+		var moveLeft = -(index * 1200); // 왼쪽으로 이동 거리
 		$('#slidePanel').animate({'left': moveLeft}, 'slow');
 	}
 	

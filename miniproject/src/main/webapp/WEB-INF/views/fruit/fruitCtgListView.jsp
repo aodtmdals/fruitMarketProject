@@ -13,9 +13,9 @@
         <c:import url="/WEB-INF/views/layout/head.jsp" />	   
    </head>
    <body>
+      <c:import url="/WEB-INF/views/layout/top.jsp" />
   <div id="wrap">
    <!--  top -->         
-      <c:import url="/WEB-INF/views/layout/top.jsp" />
       <div class="head2">전체상품</div>
       <div class="head3">
       	  <select id="selectoption">

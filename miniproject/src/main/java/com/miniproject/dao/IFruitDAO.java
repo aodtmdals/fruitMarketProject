@@ -15,5 +15,7 @@ public interface IFruitDAO {
 	public FruitVO detailViewFruit(String fruNo); // 상세 상품 조회
 	public String fruNoCheck(String fruNo);
 	public ArrayList<FruitVO>FruitSearch(HashMap<String,Object>map);//상품검색
+	public ArrayList<FruitVO> listalwaysFruit(); //언제나 상품
+
 
 }

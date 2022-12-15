@@ -57,6 +57,35 @@
 }
 
 
+.wrap-body{
+	display:flex;
+	
+}
+.wrapper-li{
+	position:absolute;
+}
 
+.main{
+  display:flex;	
+}
 
+.product_text1 ul li{
+	text-align: left;
+	font-weight:bolder;
+	color :orange;
+	font-size: 60px;
+	font-family:'Gamja Flower', cursive;
+	margin-left: 90px;
+
+}
+#main{
+}
+
+.index{
+    justify-content: space-around;
+}
+
+#left-banner{
+	margin-left:130px;
+}
 

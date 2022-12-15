@@ -12,8 +12,8 @@
      	<script src="<c:url value='/js/login.js' />"></script>
 	</head>
 	<body>
-		<div id="wrap">
 			<c:import url="/WEB-INF/views/layout/top.jsp" />
+		<div id="wrap">
 			<form id="newMemberForm" name="newMemberForm">
 				<div class="loginpage">
 				    <h2> 새콤달콤상점</h2> 

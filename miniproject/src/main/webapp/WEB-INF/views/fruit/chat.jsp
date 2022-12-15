@@ -12,8 +12,8 @@
 	</head>
 	<body>
 	
+	<c:import url="/WEB-INF/views/layout/top.jsp" />
     <div id="wrap">
-		<c:import url="/WEB-INF/views/layout/top.jsp" />
         <!--채팅 섹션-->
         <div class="body">
             <article class="main">
