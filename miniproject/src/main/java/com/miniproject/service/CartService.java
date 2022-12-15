@@ -73,7 +73,7 @@ public class CartService implements ICartService {
 	}
 
 	@Override
-	public void insertOrder(OrderInfoVO ordInfoVo) {
+	public void insertOrderInfo(OrderInfoVO ordInfoVo) {
 		// (1) 주문 정보 저장 (order_info 테이블)
 		dao.insertOrderInfo(ordInfoVo);
 		
@@ -97,6 +97,18 @@ public class CartService implements ICartService {
 	public void insertCartClick(String fruNo) {
 		// TODO Auto-generated method stub
 		dao.insertCartClick(fruNo);
+	}
+
+	@Override
+	public void insertOrderFruit(HashMap<String, Object> map) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void deleteCartAfterOrder(String memId) {
+		// TODO Auto-generated method stub
+		
 	}
 
 	

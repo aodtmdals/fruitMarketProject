@@ -1,6 +1,7 @@
 package com.miniproject.service;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import com.miniproject.model.CartVO;
 import com.miniproject.model.MemberVO;
@@ -24,7 +25,7 @@ public interface ICartService {
 		public void updateCart(CartVO vo); // 변경된 주문수량 업데이트
 		
 		// 주문 완료 처리 : 주문 내역 저장
-		public void insertOrder(OrderInfoVO ordInfoVo);
-
-
+		public void insertOrderInfo(OrderInfoVO ordInfoVo);
+		public void insertOrderFruit(HashMap<String, Object> map); // 주문 상품 내용 저장
+		public void deleteCartAfterOrder(String memId);// 주문 후 장바구니 내용 비우기(삭제)
 }

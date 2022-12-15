@@ -20,7 +20,7 @@
 		<div id="wrap">
         	<section>
         		<br>
-        		<form method="post" action="<c:url value='/'/>">	        		
+        		<form method="post" action="<c:url value='/product/orderComplete'/>">	        		
      
        		<!-- (1) 주문자 정보 -->
        		<h1>Recipient Info</h1><h4>수령인 정보</h4>
