@@ -58,9 +58,17 @@ public class CartController {
 		vo.setMemId(memId); // vo의 memId 값 설정
 		
 		vo.setFruNo(fruNo);
-		vo.setCartQty(1);
 		
-		service.insertCart(vo);
+
+		int count = service.checkFruInCart(vo.getFruNo(), memId);	
+		
+		if(count == 0) { // (2) 동일 상품이 존재하지 않으면(count==0) 장바구니에 추가
+			vo.setCartQty(1);
+			service.insertCart(vo); 
+		} else { // (3) 동일 상품이 존재하면 주문수량 변경
+			vo.setCartQty(count);
+			service.updateQtyInCart(vo);
+		}
  		
  		
 		// 장바구니 목록 출력 요청 포워딩
@@ -105,7 +113,7 @@ public class CartController {
 	service.deleteAllCart(memId);
 	
 
-	return "redirect:/";
+	return "/fruit/cartListView";
 	}
 	
 	// 주문서 작성

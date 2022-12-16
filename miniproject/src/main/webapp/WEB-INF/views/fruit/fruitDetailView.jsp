@@ -27,7 +27,8 @@
 				
 					<tr><td rowspan="7" id="prdImgtd"><img src="<c:url value='/images/${fru.fruImg}'/>" id="prdimg"></td>
 					<td colspan="2" style="height:10px"><a id="fruitTitle">${fru.fruInfo }</a></td></tr>
-					<tr><td>정가</td><td style="text-decoration: line-through"><fmt:formatNumber value="${fru.fruOriginPrice }" pattern="#,###" /> 원</td></tr>
+					<tr><td>정가</td><td style="text-decoration: line-through"><c:if test="${not empty fru.fruOriginPrice && 0 != fru.fruOriginPrice}">			
+					<fmt:formatNumber value="${fru.fruOriginPrice }" pattern="#,###" /></c:if> 원</td></tr>
 					<tr><td>판매가</td><td id="price"><fmt:formatNumber value="${fru.fruPrice }" pattern="#,###" /> 원</td></tr>
 						<tr>
 							<td>수량</td>
